@@ -1,0 +1,89 @@
+@import "src/theme/theme-variables";
+@import "~bootstrap/scss/mixins/_breakpoints";
+
+.login-container {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+.login-box {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  min-height: 100%;
+}
+
+.ng-invalid.ng-touched:not(form) {
+  border-left: 4px solid theme-color("danger");
+}
+
+.imagetextbox img {
+  position: absolute;
+  left: 0;
+  top: 8px;
+  padding: 35px 8px;
+  color: #aaa;
+  transition: 0.3s;
+}
+
+.imagetextbox {
+  position: relative;
+}
+
+.imagetextbox input[type="text"] {
+  padding-left: 30px;
+}
+
+.imagetextbox input[type="password"] {
+  padding-left: 30px;
+}
+
+.centered {
+  position: absolute;
+  top: 28%;
+  left: 19%;
+  height: auto;
+  width: 58%;
+  background-color: #585151;
+  opacity: 0.8;
+  padding: 0 0 25px 0px;
+  // transform: translate(-50%, -50%);
+}
+.centeredlogin {
+  position: absolute;
+  top: 28%;
+  left: 19%;
+  height: 45%;
+  width: 58%;
+}
+.loginbutton {
+  background-color: #1846a0 !important;
+  color: #fff;
+}
+.bordernone {
+  border-radius: 0;
+}
+
+ul {
+  list-style: none;
+}
+
+ul li::before {
+  content: "\2022";
+  color: #fff;
+  font-weight: bold;
+  // display: inline-block;
+  // width: 1em;
+  // margin-left: -1em;
+}
+
+@include media-breakpoint-down(xs) {
+  .container {
+    width: 100%;
+  }
+}

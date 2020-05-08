@@ -1,0 +1,88 @@
+<header>
+	<nav class="bg-black navbar-expand-lg navbar-dark bg-dark">
+		<div class="container-fluid">
+			<div class="row text-center" style="height: 60px;">
+				<div class="col-md-3" style="background-color: #E6A000;border-right: 5px solid #fff;height: 60px;">
+					<!-- <ng-container *ngIf="homeshow">
+							<img src="assets/images/home-run.png" alt="mcd" style="height: 30px;margin: 0px 19px 15px 0px;cursor: pointer;"/>
+					</ng-container> -->
+						
+					<a class="navbar-brand" href="testconfig" translate style="margin: 12px 0 0 0;">
+						<!-- <img class="logo" src="assets/images/logo.png" alt="mcd" /> -->
+						<span style="color: #0000A0;" (click)="Home()"><b style="font-size: 25px;font-weight: 920;">MARS WRIGLEY</b></span>
+					</a>
+				</div>
+				<div class="col-md-7">
+					<span class="head-text"><a class="navbar-brand"><b style="color: #E6A000;font-size: 25px;">RTM Test & Execute Tool</b></a></span>
+					<span><b style="color: #fff;font-size: 13px;">Netherlands</b></span>
+				</div>
+				<div class="col-md-2">
+					<ng-container *ngIf="!islogin">
+						<img src="assets/images/flag.png" alt="mcd" style="height: 50px;margin: 5px 0px 0px 0px"/>	
+					</ng-container>
+					<ng-container *ngIf="islogin">
+						<div id="navbar-menu" class="collapse navbar-collapse float-xs-none" [ngbCollapse]="menuHidden">
+								<div class="navbar-nav ml-auto">      
+									<div class="nav-item" ngbDropdown placement="bottom-right">
+									<a id="user-dropdown" class="nav-link" ngbDropdownToggle style="margin: 5px 60px 0px 0px;">
+									<i class="fas fa-user-circle" id="user-circle"></i><span style="    margin: 0px 0px 0px 10px;font-size: 18px;color: #fff;">Welcome {{user_name}}</span>
+									</a>
+									<div ngbDropdownMenu aria-labelledby="user-dropdown">
+									<h6 class="dropdown-header">
+									<span translate>Logged in as</span> <b> {{user_name}}</b></h6>
+									<div class="dropdown-divider"></div>
+									<button class="dropdown-item" (click)="logout()" translate>Logout</button>
+									</div>
+									</div>
+								</div>
+							</div>
+					</ng-container>
+				</div>
+			</div>
+		</div>
+	</nav>
+	<!-- <div class="row">
+		<div class="col-md-6">
+			<img src="assets/images/login-image.png" alt="mcd" class="col-md-12" style="height:100%"/>
+		</div>
+		<div class="col-md-6">
+			<h2>Login</h2>
+		</div>
+	</div> -->
+</header>
+
+
+
+<!--<header>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+
+<div id="container">
+
+<div id="left"><img src="assets/images/MCDLogo.png" alt="mcd" style="position:relative;left: 79px;width: 45px;top: 4px;">
+</div>
+
+<div id="middle">
+<span class="head-text"><a class="navbar-brand" href="#" translate>Test And Execute Measurement Tool</a></span>
+</div>
+
+<div id="right">
+<div id="navbar-menu" class="collapse navbar-collapse float-xs-none" [ngbCollapse]="menuHidden">
+<div class="navbar-nav ml-auto">      
+<div class="nav-item" ngbDropdown placement="bottom-right">
+<a id="user-dropdown" class="nav-link" ngbDropdownToggle>
+<i class="fas fa-user-circle" id="user-circle"></i>
+</a>
+<div ngbDropdownMenu aria-labelledby="user-dropdown">
+<h6 class="dropdown-header">
+<span translate>Logged in as</span> <b>{{username}}</b></h6>
+<div class="dropdown-divider"></div>
+<button class="dropdown-item" (click)="logout()" translate>Logout</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+</nav>
+</header>-->

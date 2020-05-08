@@ -1,0 +1,240 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-4">
+      <div class="first stepper">
+        <h5 class="stg1text" style="margin: 0 0 35px 0px;">Test Configuration</h5>
+        <!-- <div class="col-md-12">
+          <div class="md-stepper-horizontal">
+            <div class="md-step done">
+              <div class="md-step-circle"><span>1</span></div>
+              <div class="md-step-bar-left"></div>
+              <div class="md-step-bar-right"></div>
+            </div>
+            <div class="md-step done">
+              <div class="md-step-circle"><span>2</span></div>
+              <div class="md-step-bar-left"></div>
+              <div class="md-step-bar-right"></div>
+            </div>
+          </div>
+        </div> -->
+      </div>
+    </div>
+   
+
+
+    <div class="col-md-4">
+      <div class="second stepper stepper-active">
+        <h5 class="stg2text">Control Store Matching</h5>
+        <!-- <aw-wizard
+          #wizard
+          id="w2wizard2"
+          [navBarLayout]="'large-filled'"
+          [disableNavigationBar]="true"
+          [defaultStepIndex]="stepindex"
+        >
+          <aw-wizard-step
+            [stepTitle]="''"
+            [stepId]="3"
+            (stepEnter)="enterStep($event)"
+            [navigationSymbol]="{ symbol: '3' }"
+          >
+            <ng-template awWizardStepSymbol *ngIf="CompletedStep3">
+              <i class="fa fa-check"></i>
+            </ng-template>
+          </aw-wizard-step>
+          <aw-wizard-step
+            [stepTitle]="''"
+            [stepId]="4"
+            (stepEnter)="enterStep($event)"
+            [navigationSymbol]="{ symbol: '4' }"
+          >
+            <ng-template awWizardStepSymbol *ngIf="CompletedStep4">
+              <i class="fa fa-check"></i>
+            </ng-template>
+          </aw-wizard-step>
+          <aw-wizard-step
+            [stepTitle]="''"
+            [stepId]="5"
+            (stepEnter)="enterStep($event)"
+            [navigationSymbol]="{ symbol: '5' }"
+          >
+          </aw-wizard-step>
+        </aw-wizard> -->
+      </div>
+    </div>
+
+    <div class="col-md-4">
+      <div class="third stepper">
+        <h5 class="stg3text">Test Measurement</h5>
+        <!-- <div class="col-md-12">
+          <div class="md-stepper-horizontal">
+            <div class="md-step">
+              <div class="md-step-circle" style="background-color: #A0A0A0;"><span>6</span></div>
+              <div class="md-step-bar-left"></div>
+              <div class="md-step-bar-right" style="border-top: 1px solid #E6E6E6;"></div>
+            </div>
+            <div class="md-step">
+              <div class="md-step-circle" style="background-color: #A0A0A0;"><span>7</span></div>
+              <div class="md-step-bar-left" style="border-top: 1px solid #E6E6E6;"></div>
+              <div class="md-step-bar-right"></div>
+            </div>
+          </div>
+        </div> -->
+      </div>
+    </div>
+
+    <div class="col-md-12">
+        <h3 style="margin: 2% 0 0 3%;font-size: 25px;"><b>Select Test Applicability</b></h3>
+        
+        <div style="margin: 2% 0 0 3%;">
+            <mat-radio-group aria-label="Select an option">
+              <mat-radio-button value="1" [checked]="true" (change)="CurrentTest($event)">Only Current Test</mat-radio-button>
+              <mat-radio-button value="2" (change)="OtherOptions($event)">Other Options</mat-radio-button>
+            </mat-radio-group>
+            <br>
+            <ng-container *ngIf="currenttestshow">
+              <div class="row">
+                  <div class="form-group" style="margin: 2% 0 0 0;width: 18%;float: left;">
+                      <label>Level 1</label>
+                      <ngx-select
+                      [items]="banner"
+                      [(ngModel)]="itemId"
+                      (select)="showcontrolstore($event)"
+                      [noAutoComplete]="true"
+                      placeholder="--- Select ---"
+                      style="width: 100%;"
+                      class="borderradnone"
+                      >
+                      </ngx-select>
+                  </div>
+                  <div class="form-group" style="margin: 2% 0 0 1%;width: 18%;float: left;">
+                      <label>Level 2</label>
+                      <ngx-select
+                      [items]="banner"
+                      [(ngModel)]="itemId"
+                      (select)="showcontrolstore($event)"
+                      [noAutoComplete]="true"
+                      placeholder="--- Select ---"
+                      style="width: 100%;"
+                      class="borderradnone"
+                      >
+                      </ngx-select>
+                  </div>
+                  <div class="form-group" style="margin: 2% 0 0 1%;width: 18%;float: left;">
+                      <label>Level 3</label>
+                      <ngx-select
+                      [items]="banner"
+                      [(ngModel)]="itemId"
+                      (select)="showcontrolstore($event)"
+                      [noAutoComplete]="true"
+                      placeholder="--- Select ---"
+                      style="width: 100%;"
+                      class="borderradnone"
+                      >
+                      </ngx-select>
+                  </div>
+                  <div class="form-group" style="margin: 2% 0 0 1%;width: 18%;float: left;">
+                      <label>Level 4</label>
+                      <ngx-select
+                      [items]="banner"
+                      [(ngModel)]="itemId"
+                      (select)="showcontrolstore($event)"
+                      [noAutoComplete]="true"
+                      placeholder="--- Select ---"
+                      style="width: 100%;"
+                      class="borderradnone"
+                      >
+                      </ngx-select>
+                  </div>
+                  <div class="form-group" style="margin: 2% 0 0 1%;width: 18%;float: left;">
+                      <label>Level 5</label>
+                      <ngx-select
+                      [items]="banner"
+                      [(ngModel)]="itemId"
+                      (select)="showcontrolstore($event)"
+                      [noAutoComplete]="true"
+                      placeholder="--- Select ---"
+                      style="width: 100%;"
+                      class="borderradnone"
+                      >
+                      </ngx-select>
+                  </div>
+                  <div class="form-group" style="margin: 2% 0 0 0;width: 18%;float: left;">
+                      <label>Level 6</label>
+                      <ngx-select
+                      [items]="banner"
+                      [(ngModel)]="itemId"
+                      (select)="showcontrolstore($event)"
+                      [noAutoComplete]="true"
+                      placeholder="--- Select ---"
+                      style="width: 100%;"
+                      class="borderradnone"
+                      >
+                      </ngx-select>
+                  </div>
+                  <div class="form-group" style="margin: 2% 0 0 1%;width: 18%;float: left;">
+                      <label>Level 7</label>
+                      <ngx-select
+                      [items]="banner"
+                      [(ngModel)]="itemId"
+                      (select)="showcontrolstore($event)"
+                      [noAutoComplete]="true"
+                      placeholder="--- Select ---"
+                      style="width: 100%;"
+                      class="borderradnone"
+                      >
+                      </ngx-select>
+                  </div>
+                  <div class="form-group" style="margin: 2% 0 0 1%;width: 18%;float: left;">
+                      <label>Level 8</label>
+                      <ngx-select
+                      [items]="banner"
+                      [(ngModel)]="itemId"
+                      (select)="showcontrolstore($event)"
+                      [noAutoComplete]="true"
+                      placeholder="--- Select ---"
+                      style="width: 100%;"
+                      class="borderradnone"
+                      >
+                      </ngx-select>
+                  </div>
+                  <div class="form-group" style="margin: 2% 0 0 1%;width: 18%;float: left;">
+                      <label>Level 9</label>
+                      <ngx-select
+                      [items]="banner"
+                      [(ngModel)]="itemId"
+                      (select)="showcontrolstore($event)"
+                      [noAutoComplete]="true"
+                      placeholder="--- Select ---"
+                      style="width: 100%;"
+                      class="borderradnone"
+                      >
+                      </ngx-select>
+                  </div>
+                  
+              </div>
+              <br>
+              
+              <div class="pretestborder" style="width: 95%;">
+                  <div class="row">
+                      <div class="form-group col-md-4" style="margin: 2% 0 3% 10%;">
+                        <label>Minimum No of Control Store Matches</label>
+                          <input class="form-control borderradnone" type="text" placeholder="No of Control Store Matches" (keypress)="omit_char($event)" [(ngModel)]="NoofError" style="font-family:Arial, FontAwesome;"/>
+                      </div>
+                      <div class="form-group col-md-4" style="margin: 2% 0 3% 10%;">
+                          <label>Upload Excluded Control Stores (Optional)</label>
+                            <input class="form-control borderradnone" type="text" (keypress)="omit_char($event)" [(ngModel)]="NoofError" style="font-family:Arial, FontAwesome;"/>
+                        </div>
+                  </div>
+              </div>
+              <button mat-raised-button class="btn uploadstorebut" style="float: left;"><b>View / Upload Test Stores</b></button>
+              <button mat-raised-button class="btn uploadstorebut" style="float: left;margin: 2% 0 0 26%;width: 20%;"><b>Control Store Summary</b></button>
+              <button mat-raised-button class="btn uploadstorebut pull-right" style="float: left;    margin: 2% 0 0 1%;width: 20%;"><b>Confirm Control Stores</b></button>
+            </ng-container>
+            <ng-container *ngIf="otheroptionsshow">
+                <h3 style="margin: 2% 0 0 3%;font-size: 25px;"><b>Select Tests</b></h3>
+            </ng-container>
+        </div>
+    </div>
+  </div>
+</div>
