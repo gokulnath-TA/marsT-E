@@ -4,7 +4,7 @@ import { combineLatest, of } from 'rxjs';
 import { WizardComponent } from 'angular-archwizard';
 import { ControlStoreService } from './controlstore.service';
 import { SelectDropDownModule } from 'ngx-select-dropdown';
-import { IDropdownSettings } from 'ng-multiselect-dropdown';
+// import { IDropdownSettings } from 'ng-multiselect-dropdown';
 import { NgbDateStruct, NgbCalendar, NgbDate } from '@ng-bootstrap/ng-bootstrap';
 import { NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
 import { FormBuilder, FormGroup, FormControl, FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -69,6 +69,170 @@ interface Productlist {
   item_text: string;
 }
 
+interface SelectTest {
+  test_name: string;
+  status: string;
+  details: string;
+  test_window: string;
+  Created: string;
+  Modified: string;
+}
+
+interface ControlStore {
+  test_storeno: string;
+  test_storedetails: string;
+  control_mapped: string;
+  select: string;
+  similar_value: string;
+  corr_value: string;
+  store_segment: string;
+  avg_duration: string;
+  act_perform: string;
+  others: string;
+}
+
+const ELEMENT_DATA2: SelectTest[] = [
+  {
+    test_name: 'Test 1',
+    status: 'On - Going',
+    details: 'Analyse how new user interface has affected the sales',
+    test_window: 'Test Configuration to Test Measurement',
+    Created: '29/3/2020',
+    Modified: '30/3/2020'
+  },
+  {
+    test_name: 'Test 2',
+    status: 'Completed',
+    details: 'Analyse how new user interface has affected the sales',
+    test_window: 'Test Configuration to Test Measurement',
+    Created: '29/3/2020',
+    Modified: '30/3/2020'
+  }
+];
+
+const ELEMENT_DATA1: ControlStore[] = [
+  {
+    test_storeno: 'Test Store 1676',
+    test_storedetails: 'Details1',
+    control_mapped: 'Control Store 1',
+    select: '',
+    similar_value: '19',
+    corr_value: '10',
+    store_segment: 'Segment 1',
+    avg_duration: '1 Week',
+    act_perform: 'Activi1ty1',
+    others: 'GSV'
+  },
+  {
+    test_storeno: 'Test Store 1679',
+    test_storedetails: 'Details2',
+    control_mapped: 'Control Store 2',
+    select: '',
+    similar_value: '13',
+    corr_value: '60',
+    store_segment: 'Segment 2',
+    avg_duration: '3 Weeks',
+    act_perform: 'Activi1ty2',
+    others: 'CSV'
+  },
+  {
+    test_storeno: 'Test Store 1490',
+    test_storedetails: 'Details3',
+    control_mapped: 'Control Store 3',
+    select: '',
+    similar_value: '45',
+    corr_value: '23',
+    store_segment: 'Segment 3',
+    avg_duration: '6 Weeks',
+    act_perform: 'Activi1ty3',
+    others: 'RSV'
+  },
+  {
+    test_storeno: 'Test Store 2332',
+    test_storedetails: 'Details4',
+    control_mapped: 'Control Store 4',
+    select: '',
+    similar_value: '33',
+    corr_value: '87',
+    store_segment: 'Segment 4',
+    avg_duration: '2 Weeks',
+    act_perform: 'Activi1ty2',
+    others: 'CSV'
+  },
+  {
+    test_storeno: 'Test Store 1779',
+    test_storedetails: 'Details5',
+    control_mapped: 'Control Store 5',
+    select: '',
+    similar_value: '32',
+    corr_value: '27',
+    store_segment: 'Segment 5',
+    avg_duration: '8 Weeks',
+    act_perform: 'Activi1ty5',
+    others: 'GSV'
+  },
+  {
+    test_storeno: 'Test Store 1342',
+    test_storedetails: 'Details6',
+    control_mapped: 'Control Store 6',
+    select: '',
+    similar_value: '54',
+    corr_value: '76',
+    store_segment: 'Segment 6',
+    avg_duration: '3 Weeks',
+    act_perform: 'Activi1ty5',
+    others: 'RSC'
+  },
+  {
+    test_storeno: 'Test Store 1552',
+    test_storedetails: 'Details7',
+    control_mapped: 'Control Store 7',
+    select: '',
+    similar_value: '55',
+    corr_value: '22',
+    store_segment: 'Segment 7',
+    avg_duration: '1 Week',
+    act_perform: 'Activi1ty7',
+    others: 'CSV'
+  },
+  {
+    test_storeno: 'Test Store 2239',
+    test_storedetails: 'Details8',
+    control_mapped: 'Control Store 8',
+    select: '',
+    similar_value: '13',
+    corr_value: '23',
+    store_segment: 'Segment 8',
+    avg_duration: '4 Weeks',
+    act_perform: 'Activi1ty5',
+    others: 'GSV'
+  },
+  {
+    test_storeno: 'Test Store 2323',
+    test_storedetails: 'Details9',
+    control_mapped: 'Control Store 9',
+    select: '',
+    similar_value: '34',
+    corr_value: '71',
+    store_segment: 'Segment 9',
+    avg_duration: '2 Weeks',
+    act_perform: 'Activi1ty9',
+    others: 'RSV'
+  },
+  {
+    test_storeno: 'Test Store 1122',
+    test_storedetails: 'Details10',
+    control_mapped: 'Control Store 10',
+    select: '',
+    similar_value: '66',
+    corr_value: '33',
+    store_segment: 'Segment 10',
+    avg_duration: '7 Weeks',
+    act_perform: 'Activi1ty10',
+    others: 'CSV'
+  }
+];
+
 @Component({
   selector: 'app-controlstore',
   templateUrl: './controlstore.component.html',
@@ -98,7 +262,27 @@ export class ControlStoreComponent implements OnInit {
   categorycount: any;
   metrixnote: any;
   controlstringify: any;
-
+  displayedColumnsTestStore: string[] = [
+    'select',
+    'test_name',
+    'status',
+    'details',
+    'test_window',
+    'Created',
+    'Modified'
+  ];
+  displayedColumnsControlStore: string[] = [
+    'test_storeno',
+    'test_storedetails',
+    'control_mapped',
+    'select',
+    'similar_value',
+    'corr_value',
+    'store_segment',
+    'avg_duration',
+    'act_perform',
+    'others'
+  ];
   show_fileextnerror_feature: boolean = false;
   show_fileextnerror_excludematching: boolean = false;
   model1: NgbDateStruct;
@@ -129,6 +313,7 @@ export class ControlStoreComponent implements OnInit {
   noteshow: boolean = false;
   startmindate: any;
   endmindate: any;
+  public Level: any[] = ['Level 1', 'Level 2'];
   //]] highlighttext:any=['net_lrgdblqtrvmnp','Income_pctofPersons_Persons_0003','Age_pctofPersons_Age_years__0015'];
 
   //level:any;
@@ -258,7 +443,13 @@ export class ControlStoreComponent implements OnInit {
   Stat_Result_Data: Stat_Result_Data[] = [];
   @ViewChild(MatSort) sort: MatSort;
   @ViewChild('chartclick') chartclick: ElementRef;
-
+  myFiles: any = [];
+  fileName: any;
+  filePath: any;
+  fileData: any = [];
+  othershow: boolean;
+  SelectTestTable: MatTableDataSource<any>;
+  ControlStoreTable: MatTableDataSource<any>;
   AdvSettingDatasrc = new MatTableDataSource<any>(this.AdvanceData);
   MatchValuesDatasrc = new MatTableDataSource<any>(this.MatchValues_DATA);
   StatValuesDatasrc = new MatTableDataSource<any>(this.Stat_Result_Data);
@@ -270,6 +461,14 @@ export class ControlStoreComponent implements OnInit {
   selectionlocality = new SelectionModel<AdvSettingvalues>(true, []);
   currenttestshow: boolean;
   otheroptionsshow: boolean;
+  uploadshow: boolean;
+  controlrecshow: boolean;
+  Banner: boolean;
+  Segment: boolean;
+  OutletCSV: boolean;
+  Influence: boolean;
+  Shelfmeters: boolean;
+  validateshow: boolean;
 
   /*-----------------------Common------toggle,Seelect all------------*/
   masterToggle() {
@@ -472,6 +671,26 @@ export class ControlStoreComponent implements OnInit {
   }
   /*--------------------SELECT ALL PUSH VALUES----------------------------*/
 
+  isTestAllSelected() {
+    const numSelected = this.selection.selected.length;
+    const numRows = this.SelectTestTable.data.length;
+    return numSelected === numRows;
+  }
+
+  /** Selects all rows if they are not all selected; otherwise clear selection. */
+  masterToggleTest() {
+    this.isAllSelected()
+      ? this.selection.clear()
+      : this.SelectTestTable.data.forEach(row => this.selection.select(row));
+  }
+
+  /** The label for the checkbox on the passed row */
+  checkboxLabel(row?: SelectTest): string {
+    if (!row) {
+      return `${this.isTestAllSelected() ? 'select' : 'deselect'} all`;
+    }
+    // return `${this.selection.isSelected(row) ? 'deselect' : 'select'} row ${row.test_name + 1}`;
+  }
   /*Selection upto testore length*/
   selectRows_state() {
     for (let index = 0; index < this.adv_teststore_id.length; index++) {
@@ -575,7 +794,15 @@ export class ControlStoreComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    this.currenttestshow = true;
+    this.Banner = true;
+    this.Segment = true;
+    this.OutletCSV = true;
+    this.Influence = true;
+    this.Shelfmeters = true;
+    this.currenttestshow = false;
+    this.otheroptionsshow = true;
+    this.SelectTestTable = new MatTableDataSource(ELEMENT_DATA2);
+    this.ControlStoreTable = new MatTableDataSource(ELEMENT_DATA1);
     /// Static Code start here -----------------------------
     // this.testmetricmodelid = 2;
     // this.hiermodelid = 3;
@@ -771,6 +998,36 @@ export class ControlStoreComponent implements OnInit {
     localStorage.removeItem('backto');
   }
 
+  GoNext() {
+    this.controlrecshow = true;
+  }
+
+  GoBack() {
+    this.controlrecshow = false;
+    this.othershow = true;
+  }
+
+  NextPage() {
+    this.router.navigate(['./testmeasure']);
+  }
+
+  Validate() {
+    // this.openSnackBar("Control Store Validated","Close")
+    this.validateshow = true;
+  }
+
+  PreviousPage() {
+    setTimeout(() => localStorage.setItem('savenextshow', 'false'));
+    setTimeout(() => localStorage.setItem('savecontshow', 'true'));
+    setTimeout(() => localStorage.setItem('saveandnextshow', 'true'));
+    setTimeout(() => localStorage.setItem('nextstepshow', 'false'));
+    setTimeout(() => localStorage.setItem('step1show', 'false'));
+    setTimeout(() => localStorage.setItem('createtestshow', 'true'));
+    setTimeout(() => localStorage.setItem('savenextshow', 'false'));
+    window.location.href = '/testconfig';
+    // this.router.navigate(['./testconfig'])
+  }
+
   /*API FOR HIER,PRODUCTCAT,PRODUCTS*/
   Gethierarchy() {
     this.wizard2service.GetHierachy().subscribe((apiresponse: any) => {
@@ -780,6 +1037,36 @@ export class ControlStoreComponent implements OnInit {
         }
       }
     });
+  }
+
+  getFileDetails(e: any) {
+    //console.log (e.target.files);
+    for (var i = 0; i < e.target.files.length; i++) {
+      this.myFiles.push(e.target.files[i]);
+      console.log(this.myFiles);
+      if (this.myFiles != 0) {
+        this.uploadshow = true;
+      }
+    }
+  }
+
+  FilterLoadSavedTest(event: string) {
+    const val = event.toLowerCase();
+    this.tempFilter = ELEMENT_DATA2;
+    const temp = this.tempFilter.filter(function(d: any) {
+      return d.test_name.toLowerCase().indexOf(val) !== -1 || !val;
+    });
+    this.SelectTestTable = temp;
+  }
+
+  openSnackBar(message: string, action: string) {
+    this._snackBar.open(message, action, {
+      duration: 4000,
+      verticalPosition: 'bottom'
+    });
+  }
+  dismiss() {
+    this._snackBar.dismiss();
   }
 
   GetProductcat(hier: any) {

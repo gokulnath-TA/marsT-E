@@ -20,8 +20,8 @@ export class TestConfigService {
     );
   }
 
-  Validatestore(data: any) {
-    return this.httpClient.post('validate_store', { data: data }).pipe(
+  GetStoresDetails(data: any) {
+    return this.httpClient.post('Get_StoresDetails', { data: data }).pipe(
       map((body: any) => {
         if (body) {
           return body;
@@ -32,20 +32,6 @@ export class TestConfigService {
       catchError(() => of([]))
     );
   }
-
-  storesummary(data: any) {
-    return this.httpClient.post('store_summary', { data: data }).pipe(
-      map((body: any) => {
-        if (body) {
-          return body;
-        } else {
-          return {};
-        }
-      }),
-      catchError(() => of([]))
-    );
-  }
-  
   Load_savedata() {
     return this.httpClient.get('Load_savedata').pipe(
       map((body: any) => {

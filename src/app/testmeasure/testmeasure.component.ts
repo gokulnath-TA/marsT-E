@@ -3,7 +3,7 @@ import { finalize } from 'rxjs/operators';
 import { WizardComponent } from 'angular-archwizard';
 import { TestMeasureService } from './testmeasure.service';
 import { SelectDropDownModule } from 'ngx-select-dropdown';
-import { IDropdownSettings } from 'ng-multiselect-dropdown';
+// import { IDropdownSettings } from 'ng-multiselect-dropdown';
 import { NgbDateStruct, NgbCalendar, NgbDate } from '@ng-bootstrap/ng-bootstrap';
 import { NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
 import { MatTableDataSource } from '@angular/material/table';
@@ -163,12 +163,13 @@ export class TestMeasureComponent implements OnInit {
     'ControlstoreNum',
     'Rank_No',
     'StoreName',
-    'Variables',
     'Pre_Period',
     'Post_Period',
     'Lift'
   ];
   displayedColsStatrslts: string[] = ['VariableName', 'PValue', 'Lift'];
+  step1show: boolean;
+  step2show: boolean;
 
   /*------------Filter Tables---------------*/
 
@@ -212,6 +213,7 @@ export class TestMeasureComponent implements OnInit {
   ) {}
 
   ngOnInit() {
+    this.step1show = true;
     setTimeout(() => {
       this.LiftAnalysisdata = this.LiftAnalysis_DATA;
       this.LiftAnalysisDatasrc.sort = this.sort;
@@ -1262,36 +1264,59 @@ export class TestMeasureComponent implements OnInit {
   /*Wizard Navigations*/
 
   /*DatePicker functions*/
+  // PreStartDate(date: NgbDate) {
+  //   if (this.model1 && this.model2) {
+  //     // this.predays =
+  //     //     (new Date(this.model2.year + '-' + this.model2.month + '-' + this.model2.day).getTime() -
+  //     //         new Date(this.model1.year + '-' + this.model1.month + '-' + this.model1.day).getTime()) /
+  //     //     (24 * 60 * 60 * 1000);
+  //     // this.predays = Math.round(this.predays / 7);
+
+  //     // if (this.predays > 0) {
+  //     //     this.date_valid = true;
+  //     // } else {
+  //     //     this.date_valid = false;
+  //     //     this.predays = 0;
+  //     // }
+
+  //     let datas = {
+  //       start: this.model1,
+  //       end: this.model2
+  //     };
+  //     this.wizard3service.GetWeeks(datas).subscribe((apiresponse: any) => {
+  //       if (apiresponse.status == 'ok') {
+  //         this.predays = parseInt(apiresponse.data.interval);
+  //         if (this.predays > 0) {
+  //           this.date_valid = true;
+  //         } else {
+  //           this.date_valid = false;
+  //           this.predays = 0;
+  //         }
+  //       }
+  //     });
+  //   }
+
+  //   if (this.model1) {
+  //     this.startdt_req = true;
+  //   } else {
+  //     this.startdt_req = false;
+  //   }
+  // }
+
   PreStartDate(date: NgbDate) {
     if (this.model1 && this.model2) {
-      // this.predays =
-      //     (new Date(this.model2.year + '-' + this.model2.month + '-' + this.model2.day).getTime() -
-      //         new Date(this.model1.year + '-' + this.model1.month + '-' + this.model1.day).getTime()) /
-      //     (24 * 60 * 60 * 1000);
-      // this.predays = Math.round(this.predays / 7);
+      this.predays =
+        (new Date(this.model2.year + '-' + this.model2.month + '-' + this.model2.day).getTime() -
+          new Date(this.model1.year + '-' + this.model1.month + '-' + this.model1.day).getTime()) /
+        (24 * 60 * 60 * 1000);
+      this.predays = Math.round(this.predays / 7);
 
-      // if (this.predays > 0) {
-      //     this.date_valid = true;
-      // } else {
-      //     this.date_valid = false;
-      //     this.predays = 0;
-      // }
-
-      let datas = {
-        start: this.model1,
-        end: this.model2
-      };
-      this.wizard3service.GetWeeks(datas).subscribe((apiresponse: any) => {
-        if (apiresponse.status == 'ok') {
-          this.predays = parseInt(apiresponse.data.interval);
-          if (this.predays > 0) {
-            this.date_valid = true;
-          } else {
-            this.date_valid = false;
-            this.predays = 0;
-          }
-        }
-      });
+      if (this.predays > 0) {
+        this.date_valid = true;
+      } else {
+        this.date_valid = false;
+        this.predays = 0;
+      }
     }
 
     if (this.model1) {
@@ -1303,65 +1328,33 @@ export class TestMeasureComponent implements OnInit {
 
   PreEndDate(date: NgbDate) {
     if (this.model1 && this.model2) {
-      // this.predays =
-      //     (new Date(this.model2.year + '-' + this.model2.month + '-' + this.model2.day).getTime() -
-      //         new Date(this.model1.year + '-' + this.model1.month + '-' + this.model1.day).getTime()) /
-      //     (24 * 60 * 60 * 1000);
-      // this.predays = Math.round(this.predays / 7);
+      this.predays =
+        (new Date(this.model2.year + '-' + this.model2.month + '-' + this.model2.day).getTime() -
+          new Date(this.model1.year + '-' + this.model1.month + '-' + this.model1.day).getTime()) /
+        (24 * 60 * 60 * 1000);
+      this.predays = Math.round(this.predays / 7);
 
-      // if (this.predays > 0) {
-      //     this.date_valid = true;
-      // } else {
-      //     this.date_valid = false;
-      //     this.predays = 0;
-      // }
-
-      let datas = {
-        start: this.model1,
-        end: this.model2
-      };
-      this.wizard3service.GetWeeks(datas).subscribe((apiresponse: any) => {
-        if (apiresponse.status == 'ok') {
-          this.predays = parseInt(apiresponse.data.interval);
-          if (this.predays > 0) {
-            this.date_valid = true;
-          } else {
-            this.date_valid = false;
-            this.predays = 0;
-          }
-        }
-      });
+      if (this.predays > 0) {
+        this.date_valid = true;
+      } else {
+        this.date_valid = false;
+        this.predays = 0;
+      }
     }
 
     if (this.model3 && this.model2) {
-      // this.postdays1 =
-      //     (new Date(this.model3.year + '-' + this.model3.month + '-' + this.model3.day).getTime() -
-      //         new Date(this.model2.year + '-' + this.model2.month + '-' + this.model2.day).getTime()) /
-      //     (24 * 60 * 60 * 1000);
-      // this.postdays1 = Math.round(this.postdays1 / 7);
+      this.postdays1 =
+        (new Date(this.model3.year + '-' + this.model3.month + '-' + this.model3.day).getTime() -
+          new Date(this.model2.year + '-' + this.model2.month + '-' + this.model2.day).getTime()) /
+        (24 * 60 * 60 * 1000);
+      this.postdays1 = Math.round(this.postdays1 / 7);
 
-      // if (this.postdays1 > 0) {
-      //     this.date_valid0 = true;
-      // } else {
-      //     this.date_valid0 = false;
-      //     this.postdays1 = 0;
-      // }
-
-      let datas = {
-        start: this.model2,
-        end: this.model3
-      };
-      this.wizard3service.GetWeeks(datas).subscribe((apiresponse: any) => {
-        if (apiresponse.status == 'ok') {
-          this.postdays1 = parseInt(apiresponse.data.interval);
-          if (this.postdays1 > 0) {
-            this.date_valid0 = true;
-          } else {
-            this.date_valid0 = false;
-            this.postdays1 = 0;
-          }
-        }
-      });
+      if (this.postdays1 > 0) {
+        this.date_valid0 = true;
+      } else {
+        this.date_valid0 = false;
+        this.postdays1 = 0;
+      }
     }
 
     if (this.model2) {
@@ -1373,65 +1366,33 @@ export class TestMeasureComponent implements OnInit {
 
   PostStartDate(date: NgbDate) {
     if (this.model3 && this.model4) {
-      // this.postdays =
-      //     (new Date(this.model4.year + '-' + this.model4.month + '-' + this.model4.day).getTime() -
-      //         new Date(this.model3.year + '-' + this.model3.month + '-' + this.model3.day).getTime()) /
-      //     (24 * 60 * 60 * 1000);
-      // this.postdays = Math.round(this.postdays / 7);
+      this.postdays =
+        (new Date(this.model4.year + '-' + this.model4.month + '-' + this.model4.day).getTime() -
+          new Date(this.model3.year + '-' + this.model3.month + '-' + this.model3.day).getTime()) /
+        (24 * 60 * 60 * 1000);
+      this.postdays = Math.round(this.postdays / 7);
 
-      // if (this.postdays > 0) {
-      //     this.date_valid1 = true;
-      // } else {
-      //     this.date_valid1 = false;
-      //     this.postdays = 0;
-      // }
-
-      let datas = {
-        start: this.model3,
-        end: this.model4
-      };
-      this.wizard3service.GetWeeks(datas).subscribe((apiresponse: any) => {
-        if (apiresponse.status == 'ok') {
-          this.postdays = parseInt(apiresponse.data.interval);
-          if (this.postdays > 0) {
-            this.date_valid1 = true;
-          } else {
-            this.date_valid1 = false;
-            this.postdays = 0;
-          }
-        }
-      });
+      if (this.postdays > 0) {
+        this.date_valid1 = true;
+      } else {
+        this.date_valid1 = false;
+        this.postdays = 0;
+      }
     }
 
     if (this.model3 && this.model2) {
-      // this.postdays1 =
-      //     (new Date(this.model3.year + '-' + this.model3.month + '-' + this.model3.day).getTime() -
-      //         new Date(this.model2.year + '-' + this.model2.month + '-' + this.model2.day).getTime()) /
-      //     (24 * 60 * 60 * 1000);
-      // this.postdays1 = Math.round(this.postdays1 / 7);
+      this.postdays1 =
+        (new Date(this.model3.year + '-' + this.model3.month + '-' + this.model3.day).getTime() -
+          new Date(this.model2.year + '-' + this.model2.month + '-' + this.model2.day).getTime()) /
+        (24 * 60 * 60 * 1000);
+      this.postdays1 = Math.round(this.postdays1 / 7);
 
-      // if (this.postdays1 > 0) {
-      //     this.date_valid0 = true;
-      // } else {
-      //     this.date_valid0 = false;
-      //     this.postdays1 = 0;
-      // }
-
-      let datas = {
-        start: this.model2,
-        end: this.model3
-      };
-      this.wizard3service.GetWeeks(datas).subscribe((apiresponse: any) => {
-        if (apiresponse.status == 'ok') {
-          this.postdays1 = parseInt(apiresponse.data.interval);
-
-          if (this.postdays1 > 0) {
-            this.date_valid0 = true;
-          } else {
-            this.date_valid0 = false;
-          }
-        }
-      });
+      if (this.postdays1 > 0) {
+        this.date_valid0 = true;
+      } else {
+        this.date_valid0 = false;
+        this.postdays1 = 0;
+      }
     }
 
     if (this.model3) {
@@ -1443,34 +1404,18 @@ export class TestMeasureComponent implements OnInit {
 
   PostEndDate(date: NgbDate) {
     if (this.model3 && this.model4) {
-      // this.postdays =
-      //     (new Date(this.model4.year + '-' + this.model4.month + '-' + this.model4.day).getTime() -
-      //         new Date(this.model3.year + '-' + this.model3.month + '-' + this.model3.day).getTime()) /
-      //     (24 * 60 * 60 * 1000);
-      // this.postdays = Math.round(this.postdays / 7);
+      this.postdays =
+        (new Date(this.model4.year + '-' + this.model4.month + '-' + this.model4.day).getTime() -
+          new Date(this.model3.year + '-' + this.model3.month + '-' + this.model3.day).getTime()) /
+        (24 * 60 * 60 * 1000);
+      this.postdays = Math.round(this.postdays / 7);
 
-      // if (this.postdays > 0) {
-      //     this.date_valid1 = true;
-      // } else {
-      //     this.date_valid1 = false;
-      //     this.postdays = 0;
-      // }
-
-      let datas = {
-        start: this.model3,
-        end: this.model4
-      };
-      this.wizard3service.GetWeeks(datas).subscribe((apiresponse: any) => {
-        if (apiresponse.status == 'ok') {
-          this.postdays = parseInt(apiresponse.data.interval);
-          if (this.postdays > 0) {
-            this.date_valid1 = true;
-          } else {
-            this.date_valid1 = false;
-            this.postdays = 0;
-          }
-        }
-      });
+      if (this.postdays > 0) {
+        this.date_valid1 = true;
+      } else {
+        this.date_valid1 = false;
+        this.postdays = 0;
+      }
     }
 
     if (this.model4) {
@@ -1508,6 +1453,19 @@ export class TestMeasureComponent implements OnInit {
     new Angular5Csv(this.reportlist, trai_name + '_lift analysis report', options);
   }
 
+  Step2() {
+    this.step2show = true;
+    this.showcnt1 = false;
+    this.step1show = false;
+    this.CompletedStep6 = true;
+  }
+
+  GoBack() {
+    this.step2show = false;
+    this.showcnt1 = true;
+    this.step1show = true;
+    this.CompletedStep6 = false;
+  }
   /*download csv*/
 
   match_results() {

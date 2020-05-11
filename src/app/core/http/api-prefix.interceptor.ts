@@ -21,10 +21,10 @@ export class ApiPrefixInterceptor implements HttpInterceptor {
 
     headers = request.headers
       // .set('Content-Type', 'application/json')
-      .set('Access-Control-Allow-Methods', 'GET, POST, DELETE, PUT')
-      .set('Access-Control-Allow-Origin', '*')
-      .set('Authorization', `Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNTg4ODQ0NDI5LCJqdGkiOiIzZTRhYTU4NTI0OWE0OTRkYTcxYjI0ZmFkYjAzYTFlMiIsInVzZXJfaWQiOjF9.roKs0HZLIMMrBBW2AhIRUpO-m5IAExiTqfjkJRLTBSg`)
-      // .set('x-client-data', `${localStorage.getItem('client-key')}`);
+      // .set('Access-Control-Allow-Methods', 'GET, POST, DELETE, PUT')
+      // .set('Access-Control-Allow-Origin', '*')
+      // .set('Authorization', `Bearer ${this.AuthService.getToken()}`)
+      .set('x-client-data', `${localStorage.getItem('client-key')}`);
 
     if (environment.production == false) {
       request = request.clone({

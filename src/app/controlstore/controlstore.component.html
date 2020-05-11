@@ -2,32 +2,35 @@
   <div class="row">
     <div class="col-md-4">
       <div class="first stepper">
-        <h5 class="stg1text" style="margin: 0 0 35px 0px;">Test Configuration</h5>
-        <!-- <div class="col-md-12">
+        <h5 class="stg1text" style="margin: 0 0 0px 0px;">Test Configuration</h5>
+        <div class="col-md-12">
           <div class="md-stepper-horizontal">
-            <div class="md-step done">
+            <div class="md-step">
               <div class="md-step-circle"><span>1</span></div>
               <div class="md-step-bar-left"></div>
               <div class="md-step-bar-right"></div>
             </div>
-            <div class="md-step done">
+            <div class="md-step">
               <div class="md-step-circle"><span>2</span></div>
               <div class="md-step-bar-left"></div>
               <div class="md-step-bar-right"></div>
             </div>
+            <div class="md-step">
+              <div class="md-step-circle"><span>3</span></div>
+              <div class="md-step-bar-left"></div>
+              <div class="md-step-bar-right"></div>
+            </div>
           </div>
-        </div> -->
+        </div>
       </div>
     </div>
-   
-
 
     <div class="col-md-4">
       <div class="second stepper stepper-active">
         <h5 class="stg2text">Control Store Matching</h5>
-        <!-- <aw-wizard
+        <aw-wizard
           #wizard
-          id="w2wizard2"
+          id="w1wizard1"
           [navBarLayout]="'large-filled'"
           [disableNavigationBar]="true"
           [defaultStepIndex]="stepindex"
@@ -36,7 +39,7 @@
             [stepTitle]="''"
             [stepId]="3"
             (stepEnter)="enterStep($event)"
-            [navigationSymbol]="{ symbol: '3' }"
+            [navigationSymbol]="{ symbol: '4' }"
           >
             <ng-template awWizardStepSymbol *ngIf="CompletedStep3">
               <i class="fa fa-check"></i>
@@ -46,27 +49,27 @@
             [stepTitle]="''"
             [stepId]="4"
             (stepEnter)="enterStep($event)"
-            [navigationSymbol]="{ symbol: '4' }"
+            [navigationSymbol]="{ symbol: '5' }"
           >
             <ng-template awWizardStepSymbol *ngIf="CompletedStep4">
               <i class="fa fa-check"></i>
             </ng-template>
           </aw-wizard-step>
-          <aw-wizard-step
+          <!-- <aw-wizard-step
             [stepTitle]="''"
             [stepId]="5"
             (stepEnter)="enterStep($event)"
             [navigationSymbol]="{ symbol: '5' }"
           >
-          </aw-wizard-step>
-        </aw-wizard> -->
+          </aw-wizard-step> -->
+        </aw-wizard>
       </div>
     </div>
 
     <div class="col-md-4">
       <div class="third stepper">
         <h5 class="stg3text">Test Measurement</h5>
-        <!-- <div class="col-md-12">
+        <div class="col-md-12">
           <div class="md-stepper-horizontal">
             <div class="md-step">
               <div class="md-step-circle" style="background-color: #A0A0A0;"><span>6</span></div>
@@ -79,162 +82,716 @@
               <div class="md-step-bar-right"></div>
             </div>
           </div>
-        </div> -->
+        </div>
       </div>
     </div>
-
-    <div class="col-md-12">
+    <ng-container *ngIf="!controlrecshow">
+      <div class="col-md-12">
         <h3 style="margin: 2% 0 0 3%;font-size: 25px;"><b>Select Test Applicability</b></h3>
-        
+
         <div style="margin: 2% 0 0 3%;">
-            <mat-radio-group aria-label="Select an option">
-              <mat-radio-button value="1" [checked]="true" (change)="CurrentTest($event)">Only Current Test</mat-radio-button>
-              <mat-radio-button value="2" (change)="OtherOptions($event)">Other Options</mat-radio-button>
-            </mat-radio-group>
-            <br>
-            <ng-container *ngIf="currenttestshow">
+          <!-- <mat-radio-group aria-label="Select an option">
+                  <ng-container *ngIf="!othershow">
+                      <mat-radio-button value="1" [checked]="true" (change)="CurrentTest($event)">Only Current Test</mat-radio-button>
+                  </ng-container>
+
+                  <ng-container *ngIf="othershow">
+                      <mat-radio-button value="1" (change)="CurrentTest($event)">Only Current Test</mat-radio-button>
+                  </ng-container>
+                  <ng-container *ngIf="othershow">
+                    <mat-radio-button value="2" [checked]="true" (change)="OtherOptions($event)">Other Options</mat-radio-button>
+                  </ng-container>
+                  <ng-container *ngIf="!othershow">
+                    <mat-radio-button value="2" (change)="OtherOptions($event)">Other Options</mat-radio-button>
+                  </ng-container>
+                </mat-radio-group> -->
+          <br />
+          <ng-container *ngIf="currenttestshow">
+            <div class="row">
+              <div class="form-group" style="margin: 2% 0 0 0;width: 18%;float: left;">
+                <label>Level 1</label>
+                <!-- <ngx-select
+                          [items]="Level"
+                          [(ngModel)]="Level1"
+                          (select)="showcontrolstore($event)"
+                          [noAutoComplete]="true"
+                          placeholder="--- Select ---"
+                          style="width: 100%;"
+                          class="borderradnone"
+                          >
+                          </ngx-select> -->
+                <ng-multiselect-dropdown
+                  [placeholder]="'---Select---'"
+                  [data]="Level"
+                  (onSelect)="onMetricSelect($event)"
+                  (onSelectAll)="onMetricSelectAll($event)"
+                  (onDeSelect)="onMetricDeSelect($event)"
+                  (onDeSelectAll)="onMetricDeSelectAll($event)"
+                  [settings]="MeaurementMetricSet"
+                  [(ngModel)]="Level1"
+                  style="border-radius: 0;"
+                >
+                </ng-multiselect-dropdown>
+              </div>
+              <div class="form-group" style="margin: 2% 0 0 1%;width: 18%;float: left;">
+                <label>Level 2</label>
+                <!-- <ngx-select
+                          [items]="banner"
+                          [(ngModel)]="itemId"
+                          (select)="showcontrolstore($event)"
+                          [noAutoComplete]="true"
+                          placeholder="--- Select ---"
+                          style="width: 100%;"
+                          class="borderradnone"
+                          >
+                          </ngx-select> -->
+                <ng-multiselect-dropdown
+                  [placeholder]="'---Select---'"
+                  [data]="Level"
+                  (onSelect)="onMetricSelect($event)"
+                  (onSelectAll)="onMetricSelectAll($event)"
+                  (onDeSelect)="onMetricDeSelect($event)"
+                  (onDeSelectAll)="onMetricDeSelectAll($event)"
+                  [settings]="MeaurementMetricSet"
+                  [(ngModel)]="Level2"
+                  style="border-radius: 0;"
+                >
+                </ng-multiselect-dropdown>
+              </div>
+              <div class="form-group" style="margin: 2% 0 0 1%;width: 18%;float: left;">
+                <label>Level 3</label>
+                <!-- <ngx-select
+                          [items]="banner"
+                          [(ngModel)]="itemId"
+                          (select)="showcontrolstore($event)"
+                          [noAutoComplete]="true"
+                          placeholder="--- Select ---"
+                          style="width: 100%;"
+                          class="borderradnone"
+                          >
+                          </ngx-select> -->
+                <ng-multiselect-dropdown
+                  [placeholder]="'---Select---'"
+                  [data]="Level"
+                  (onSelect)="onMetricSelect($event)"
+                  (onSelectAll)="onMetricSelectAll($event)"
+                  (onDeSelect)="onMetricDeSelect($event)"
+                  (onDeSelectAll)="onMetricDeSelectAll($event)"
+                  [settings]="MeaurementMetricSet"
+                  [(ngModel)]="Level3"
+                  style="border-radius: 0;"
+                >
+                </ng-multiselect-dropdown>
+              </div>
+              <div class="form-group" style="margin: 2% 0 0 1%;width: 18%;float: left;">
+                <label>Level 4</label>
+                <!-- <ngx-select
+                          [items]="banner"
+                          [(ngModel)]="itemId"
+                          (select)="showcontrolstore($event)"
+                          [noAutoComplete]="true"
+                          placeholder="--- Select ---"
+                          style="width: 100%;"
+                          class="borderradnone"
+                          >
+                          </ngx-select> -->
+                <ng-multiselect-dropdown
+                  [placeholder]="'---Select---'"
+                  [data]="Level"
+                  (onSelect)="onMetricSelect($event)"
+                  (onSelectAll)="onMetricSelectAll($event)"
+                  (onDeSelect)="onMetricDeSelect($event)"
+                  (onDeSelectAll)="onMetricDeSelectAll($event)"
+                  [settings]="MeaurementMetricSet"
+                  [(ngModel)]="Level4"
+                  style="border-radius: 0;"
+                >
+                </ng-multiselect-dropdown>
+              </div>
+              <div class="form-group" style="margin: 2% 0 0 1%;width: 18%;float: left;">
+                <label>Level 5</label>
+                <!-- <ngx-select
+                          [items]="banner"
+                          [(ngModel)]="itemId"
+                          (select)="showcontrolstore($event)"
+                          [noAutoComplete]="true"
+                          placeholder="--- Select ---"
+                          style="width: 100%;"
+                          class="borderradnone"
+                          >
+                          </ngx-select> -->
+                <ng-multiselect-dropdown
+                  [placeholder]="'---Select---'"
+                  [data]="Level"
+                  (onSelect)="onMetricSelect($event)"
+                  (onSelectAll)="onMetricSelectAll($event)"
+                  (onDeSelect)="onMetricDeSelect($event)"
+                  (onDeSelectAll)="onMetricDeSelectAll($event)"
+                  [settings]="MeaurementMetricSet"
+                  [(ngModel)]="Level5"
+                  style="border-radius: 0;"
+                >
+                </ng-multiselect-dropdown>
+              </div>
+              <div class="form-group" style="margin: 2% 0 0 0;width: 18%;float: left;">
+                <label>Level 6</label>
+                <!-- <ngx-select
+                          [items]="banner"
+                          [(ngModel)]="itemId"
+                          (select)="showcontrolstore($event)"
+                          [noAutoComplete]="true"
+                          placeholder="--- Select ---"
+                          style="width: 100%;"
+                          class="borderradnone"
+                          >
+                          </ngx-select> -->
+                <ng-multiselect-dropdown
+                  [placeholder]="'---Select---'"
+                  [data]="Level"
+                  (onSelect)="onMetricSelect($event)"
+                  (onSelectAll)="onMetricSelectAll($event)"
+                  (onDeSelect)="onMetricDeSelect($event)"
+                  (onDeSelectAll)="onMetricDeSelectAll($event)"
+                  [settings]="MeaurementMetricSet"
+                  [(ngModel)]="Level6"
+                  style="border-radius: 0;"
+                >
+                </ng-multiselect-dropdown>
+              </div>
+              <div class="form-group" style="margin: 2% 0 0 1%;width: 18%;float: left;">
+                <label>Level 7</label>
+                <!-- <ngx-select
+                          [items]="banner"
+                          [(ngModel)]="itemId"
+                          (select)="showcontrolstore($event)"
+                          [noAutoComplete]="true"
+                          placeholder="--- Select ---"
+                          style="width: 100%;"
+                          class="borderradnone"
+                          >
+                          </ngx-select> -->
+                <ng-multiselect-dropdown
+                  [placeholder]="'---Select---'"
+                  [data]="Level"
+                  (onSelect)="onMetricSelect($event)"
+                  (onSelectAll)="onMetricSelectAll($event)"
+                  (onDeSelect)="onMetricDeSelect($event)"
+                  (onDeSelectAll)="onMetricDeSelectAll($event)"
+                  [settings]="MeaurementMetricSet"
+                  [(ngModel)]="Level7"
+                  style="border-radius: 0;"
+                >
+                </ng-multiselect-dropdown>
+              </div>
+              <div class="form-group" style="margin: 2% 0 0 1%;width: 18%;float: left;">
+                <label>Level 8</label>
+                <!-- <ngx-select
+                          [items]="banner"
+                          [(ngModel)]="itemId"
+                          (select)="showcontrolstore($event)"
+                          [noAutoComplete]="true"
+                          placeholder="--- Select ---"
+                          style="width: 100%;"
+                          class="borderradnone"
+                          >
+                          </ngx-select> -->
+                <ng-multiselect-dropdown
+                  [placeholder]="'---Select---'"
+                  [data]="Level"
+                  (onSelect)="onMetricSelect($event)"
+                  (onSelectAll)="onMetricSelectAll($event)"
+                  (onDeSelect)="onMetricDeSelect($event)"
+                  (onDeSelectAll)="onMetricDeSelectAll($event)"
+                  [settings]="MeaurementMetricSet"
+                  [(ngModel)]="Level8"
+                  style="border-radius: 0;"
+                >
+                </ng-multiselect-dropdown>
+              </div>
+              <div class="form-group" style="margin: 2% 0 0 1%;width: 18%;float: left;">
+                <label>Level 9</label>
+                <!-- <ngx-select
+                          [items]="banner"
+                          [(ngModel)]="itemId"
+                          (select)="showcontrolstore($event)"
+                          [noAutoComplete]="true"
+                          placeholder="--- Select ---"
+                          style="width: 100%;"
+                          class="borderradnone"
+                          >
+                          </ngx-select> -->
+                <ng-multiselect-dropdown
+                  [placeholder]="'---Select---'"
+                  [data]="Level"
+                  (onSelect)="onMetricSelect($event)"
+                  (onSelectAll)="onMetricSelectAll($event)"
+                  (onDeSelect)="onMetricDeSelect($event)"
+                  (onDeSelectAll)="onMetricDeSelectAll($event)"
+                  [settings]="MeaurementMetricSet"
+                  [(ngModel)]="Level9"
+                  style="border-radius: 0;"
+                >
+                </ng-multiselect-dropdown>
+              </div>
+            </div>
+            <br />
+
+            <div class="pretestborder" style="width: 95%;">
               <div class="row">
-                  <div class="form-group" style="margin: 2% 0 0 0;width: 18%;float: left;">
-                      <label>Level 1</label>
-                      <ngx-select
-                      [items]="banner"
-                      [(ngModel)]="itemId"
-                      (select)="showcontrolstore($event)"
-                      [noAutoComplete]="true"
-                      placeholder="--- Select ---"
-                      style="width: 100%;"
-                      class="borderradnone"
-                      >
-                      </ngx-select>
+                <div class="form-group col-md-4" style="margin: 2% 0 3% 10%;">
+                  <label>Minimum No of Control Store Matches</label>
+                  <input
+                    class="form-control borderradnone"
+                    type="text"
+                    placeholder="No of Control Store Matches"
+                    (keypress)="omit_char($event)"
+                    [(ngModel)]="NoofError"
+                    style="font-family:Arial, FontAwesome;border-radius: 0;"
+                  />
+                </div>
+                <div class="form-group col-md-4" style="margin: 2% 0 3% 10%;">
+                  <label>Upload Excluded Control Stores (Optional)</label>
+                  <div class="input-group-btn">
+                    <span class="fileUpload btn" style="border: none;border-radius: 0rem;margin-bottom: 1rem;">
+                      <span class="upl" id="upload">Choose file</span>
+                      <input
+                        type="file"
+                        #file
+                        class="upload"
+                        id="up"
+                        accept=".csv,.xlsx"
+                        name="upfile"
+                        (change)="getFileData($event)"
+                      /> </span
+                    ><!-- btn-orange -->
+
+                    <button type="submit" [hidden]="submit_visible" class="submit btn">Submit</button>
                   </div>
-                  <div class="form-group" style="margin: 2% 0 0 1%;width: 18%;float: left;">
-                      <label>Level 2</label>
-                      <ngx-select
-                      [items]="banner"
-                      [(ngModel)]="itemId"
-                      (select)="showcontrolstore($event)"
-                      [noAutoComplete]="true"
-                      placeholder="--- Select ---"
-                      style="width: 100%;"
-                      class="borderradnone"
-                      >
-                      </ngx-select>
-                  </div>
-                  <div class="form-group" style="margin: 2% 0 0 1%;width: 18%;float: left;">
-                      <label>Level 3</label>
-                      <ngx-select
-                      [items]="banner"
-                      [(ngModel)]="itemId"
-                      (select)="showcontrolstore($event)"
-                      [noAutoComplete]="true"
-                      placeholder="--- Select ---"
-                      style="width: 100%;"
-                      class="borderradnone"
-                      >
-                      </ngx-select>
-                  </div>
-                  <div class="form-group" style="margin: 2% 0 0 1%;width: 18%;float: left;">
-                      <label>Level 4</label>
-                      <ngx-select
-                      [items]="banner"
-                      [(ngModel)]="itemId"
-                      (select)="showcontrolstore($event)"
-                      [noAutoComplete]="true"
-                      placeholder="--- Select ---"
-                      style="width: 100%;"
-                      class="borderradnone"
-                      >
-                      </ngx-select>
-                  </div>
-                  <div class="form-group" style="margin: 2% 0 0 1%;width: 18%;float: left;">
-                      <label>Level 5</label>
-                      <ngx-select
-                      [items]="banner"
-                      [(ngModel)]="itemId"
-                      (select)="showcontrolstore($event)"
-                      [noAutoComplete]="true"
-                      placeholder="--- Select ---"
-                      style="width: 100%;"
-                      class="borderradnone"
-                      >
-                      </ngx-select>
-                  </div>
-                  <div class="form-group" style="margin: 2% 0 0 0;width: 18%;float: left;">
-                      <label>Level 6</label>
-                      <ngx-select
-                      [items]="banner"
-                      [(ngModel)]="itemId"
-                      (select)="showcontrolstore($event)"
-                      [noAutoComplete]="true"
-                      placeholder="--- Select ---"
-                      style="width: 100%;"
-                      class="borderradnone"
-                      >
-                      </ngx-select>
-                  </div>
-                  <div class="form-group" style="margin: 2% 0 0 1%;width: 18%;float: left;">
-                      <label>Level 7</label>
-                      <ngx-select
-                      [items]="banner"
-                      [(ngModel)]="itemId"
-                      (select)="showcontrolstore($event)"
-                      [noAutoComplete]="true"
-                      placeholder="--- Select ---"
-                      style="width: 100%;"
-                      class="borderradnone"
-                      >
-                      </ngx-select>
-                  </div>
-                  <div class="form-group" style="margin: 2% 0 0 1%;width: 18%;float: left;">
-                      <label>Level 8</label>
-                      <ngx-select
-                      [items]="banner"
-                      [(ngModel)]="itemId"
-                      (select)="showcontrolstore($event)"
-                      [noAutoComplete]="true"
-                      placeholder="--- Select ---"
-                      style="width: 100%;"
-                      class="borderradnone"
-                      >
-                      </ngx-select>
-                  </div>
-                  <div class="form-group" style="margin: 2% 0 0 1%;width: 18%;float: left;">
-                      <label>Level 9</label>
-                      <ngx-select
-                      [items]="banner"
-                      [(ngModel)]="itemId"
-                      (select)="showcontrolstore($event)"
-                      [noAutoComplete]="true"
-                      placeholder="--- Select ---"
-                      style="width: 100%;"
-                      class="borderradnone"
-                      >
-                      </ngx-select>
-                  </div>
-                  
+                </div>
               </div>
-              <br>
-              
-              <div class="pretestborder" style="width: 95%;">
-                  <div class="row">
-                      <div class="form-group col-md-4" style="margin: 2% 0 3% 10%;">
-                        <label>Minimum No of Control Store Matches</label>
-                          <input class="form-control borderradnone" type="text" placeholder="No of Control Store Matches" (keypress)="omit_char($event)" [(ngModel)]="NoofError" style="font-family:Arial, FontAwesome;"/>
-                      </div>
-                      <div class="form-group col-md-4" style="margin: 2% 0 3% 10%;">
-                          <label>Upload Excluded Control Stores (Optional)</label>
-                            <input class="form-control borderradnone" type="text" (keypress)="omit_char($event)" [(ngModel)]="NoofError" style="font-family:Arial, FontAwesome;"/>
-                        </div>
-                  </div>
+            </div>
+
+            <button
+              mat-raised-button
+              class="btn uploadstorebut"
+              style="float: left;width: 10%;"
+              (click)="PreviousPage()"
+            >
+              <b>Back</b>
+            </button>
+            <button mat-raised-button class="btn uploadstorebut" style="float: left;width: 21%;margin: 2% 0 0 1%;">
+              <b>View / Upload Test Stores</b>
+            </button>
+            <button mat-raised-button class="btn uploadstorebut" style="float: left;margin: 2% 0 0 26%;width: 18%;">
+              <b>Control Store Summary</b>
+            </button>
+            <button
+              mat-raised-button
+              class="btn uploadstorebut pull-right"
+              style="float: left;    margin: 2% 0 0 1%;width: 18%;"
+            >
+              <b>Confirm Control Stores</b>
+            </button>
+          </ng-container>
+          <ng-container *ngIf="otheroptionsshow">
+            <h3 style="margin: -3% 2% 0px 0%;;font-size: 22px;color: #0000A0;float: right;">
+              <b>Test Name Details</b>
+            </h3>
+            <div style="float:right;">
+              <input
+                class="form-control"
+                type="text"
+                (keyup)="FilterLoadSavedTest($event.target.value)"
+                placeholder="&#xF002;&nbsp; Search"
+                style="font-family:Arial, FontAwesome;margin-bottom: 1rem;"
+              />
+            </div>
+            <table
+              style="margin-top: 3%;"
+              mat-table
+              matSort
+              [dataSource]="SelectTestTable"
+              (matSortChange)="sortDataLoadSaved($event)"
+              class="mat-elevation-z8"
+            >
+              <ng-container matColumnDef="select">
+                <th mat-header-cell *matHeaderCellDef>
+                  <mat-checkbox
+                    (change)="$event ? masterToggle() : null"
+                    [checked]="selection.hasValue() && isAllSelected()"
+                    [indeterminate]="selection.hasValue() && !isAllSelected()"
+                    [aria-label]="checkboxLabel()"
+                  >
+                  </mat-checkbox>
+                  <span class="table-header-label" style="margin-left: 5px;">Select All</span>
+                </th>
+                <td mat-cell *matCellDef="let row">
+                  <mat-checkbox
+                    (click)="$event.stopPropagation()"
+                    (change)="$event ? selection.toggle(row) : null"
+                    [checked]="selection.isSelected(row)"
+                    [aria-label]="checkboxLabel(row)"
+                  >
+                  </mat-checkbox>
+                </td>
+              </ng-container>
+              <!-- TestName Column -->
+              <ng-container matColumnDef="test_name">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header style="width: 14%;padding: 0;">
+                  <span class="table-header-label">Test Names</span> &nbsp;<img
+                    class="logo"
+                    src="assets/images/sort-arrow.png"
+                    alt="sort"
+                  />
+                </th>
+                <td mat-cell *matCellDef="let row">{{ row.test_name }}</td>
+              </ng-container>
+
+              <!-- StoreName Column -->
+              <ng-container matColumnDef="status">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header style="width: 14%;">
+                  <span class="table-header-label">Status &nbsp;</span
+                  ><img class="logo" src="assets/images/sort-arrow.png" alt="sort" />
+                </th>
+
+                <td mat-cell *matCellDef="let row">{{ row.status }}</td>
+              </ng-container>
+
+              <!-- Details Column -->
+              <ng-container matColumnDef="details">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header style="width: 18%;">
+                  <span class="table-header-label">Details</span> &nbsp;<img
+                    class="logo"
+                    src="assets/images/sort-arrow.png"
+                    alt="sort"
+                  />
+                </th>
+                <td mat-cell *matCellDef="let row">{{ row.details }}</td>
+              </ng-container>
+
+              <ng-container matColumnDef="Created">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header style="width: 13%;">
+                  <span class="table-header-label">Created at</span> &nbsp;<img
+                    class="logo"
+                    src="assets/images/sort-arrow.png"
+                    alt="sort"
+                  />
+                </th>
+                <td mat-cell *matCellDef="let row">{{ row.Created }}</td>
+              </ng-container>
+
+              <ng-container matColumnDef="test_window">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header style="width: 16%;">
+                  <span class="table-header-label">Test Window</span> &nbsp;<img
+                    class="logo"
+                    src="assets/images/sort-arrow.png"
+                    alt="sort"
+                  />
+                </th>
+                <td mat-cell *matCellDef="let row">{{ row.test_window }}</td>
+              </ng-container>
+
+              <ng-container matColumnDef="Modified">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header style="width: 16%;">
+                  <span class="table-header-label">Last Modified at</span> &nbsp;<img
+                    class="logo"
+                    src="assets/images/sort-arrow.png"
+                    alt="sort"
+                  />
+                </th>
+                <td mat-cell *matCellDef="let row">
+                  {{ row.Modified }}
+                </td>
+              </ng-container>
+
+              <tr mat-header-row *matHeaderRowDef="displayedColumnsTestStore"></tr>
+              <tr mat-row *matRowDef="let row; columns: displayedColumnsTestStore" (click)="selection.toggle(row)"></tr>
+            </table>
+
+            <div class="row">
+              <div class="col-md-10">
+                <pagination-controls
+                  (pageChange)="lp = $event; paginateloadsaved(lp)"
+                  nextLabel=""
+                  previousLabel=""
+                ></pagination-controls>
               </div>
-              <button mat-raised-button class="btn uploadstorebut" style="float: left;"><b>View / Upload Test Stores</b></button>
-              <button mat-raised-button class="btn uploadstorebut" style="float: left;margin: 2% 0 0 26%;width: 20%;"><b>Control Store Summary</b></button>
-              <button mat-raised-button class="btn uploadstorebut pull-right" style="float: left;    margin: 2% 0 0 1%;width: 20%;"><b>Confirm Control Stores</b></button>
-            </ng-container>
-            <ng-container *ngIf="otheroptionsshow">
-                <h3 style="margin: 2% 0 0 3%;font-size: 25px;"><b>Select Tests</b></h3>
-            </ng-container>
+              <div class="col-md-2">
+                <label style="width:43%;float: left;margin-top: 22px;">Per page</label>
+                <select
+                  class="form-control"
+                  style="width:43%;margin-top: 1rem;"
+                  [(ngModel)]="loadperpage"
+                  (change)="perpageLoadSaved($event)"
+                >
+                  <option value="10"> 10 </option>
+                  <option value="25"> 25 </option>
+                  <option value="50"> 50 </option>
+                </select>
+              </div>
+            </div>
+            <h3 style="margin: 2% 0 0 0%;font-size: 25px;"><b>Select Matching Criteria</b></h3>
+            <mat-card style="background-color:#e6a12f ;margin-top: 2%;">
+              <mat-checkbox
+                class="example-margin"
+                [checked]="true"
+                [(ngModel)]="Banner"
+                style="color: #fff;font-size: 20px;margin-left: 2%;"
+                >Banner</mat-checkbox
+              >
+              <mat-checkbox
+                class="example-margin"
+                [checked]="true"
+                [(ngModel)]="Segment"
+                style="color: #fff;margin-left: 3%;font-size: 20px;"
+                >Segment</mat-checkbox
+              >
+              <mat-checkbox
+                class="example-margin"
+                [checked]="true"
+                [(ngModel)]="OutletCSV"
+                style="color: #fff;margin-left: 3%;font-size: 20px;"
+                >Outlet CSV</mat-checkbox
+              >
+              <mat-checkbox
+                class="example-margin"
+                [checked]="true"
+                [(ngModel)]="Influence"
+                style="color: #fff;margin-left: 3%;font-size: 20px;"
+                >Influence</mat-checkbox
+              >
+              <mat-checkbox
+                class="example-margin"
+                [checked]="true"
+                [(ngModel)]="Shelfmeters"
+                style="color: #fff;margin-left: 3%;font-size: 20px;"
+                >Shelf meters</mat-checkbox
+              >
+              <!-- <mat-checkbox class="example-margin" [checked]="false" [(ngModel)]="outletCsv" style="color: #fff;margin-left: 3%;font-size: 20px;"></mat-checkbox> -->
+            </mat-card>
+            <button
+              mat-raised-button
+              class="btn uploadstorebut"
+              style="margin: 2% 0 3% 0%;width:15%;display: initial;"
+              (click)="PreviousPage()"
+            >
+              <b>Back</b>
+            </button>
+            <button
+              mat-raised-button
+              class="btn uploadstorebut pull-right"
+              style="margin: 2% 0 3% 0%;width: 15%;"
+              (click)="GoNext()"
+            >
+              <b>Next</b>
+            </button>
+          </ng-container>
         </div>
-    </div>
+      </div>
+    </ng-container>
+    <ng-container *ngIf="controlrecshow">
+      <div class="col-md-12">
+        <div style="margin: 2% 0 0 3%;">
+          <h3 style="margin: 2% 0 0 0%;font-size: 25px;"><b>Control Store Recommended</b></h3>
+          <button mat-raised-button class="btn uploadstorebut pull-right" style="width: 21%;margin: 0;">
+            <b>Export Control Stores</b>
+          </button>
+          <!-- <button mat-raised-button class="btn uploadstorebut pull-right" style="width: 20%;    margin: 0 15px 0 0;"><b>Edit Control Stores</b></button> -->
+          <br /><br />
+          <div style="float:right;">
+            <input
+              class="form-control"
+              type="text"
+              (keyup)="FilterLoadSavedTest($event.target.value)"
+              placeholder="&#xF002;&nbsp; Search"
+              style="font-family:Arial, FontAwesome;margin-bottom: 1rem;"
+            />
+          </div>
+          <table
+            style="margin-top: 3%;"
+            mat-table
+            matSort
+            [dataSource]="ControlStoreTable"
+            (matSortChange)="sortDataLoadSaved($event)"
+            class="mat-elevation-z8"
+          >
+            <ng-container matColumnDef="test_storeno">
+              <th mat-header-cell *matHeaderCellDef mat-sort-header style="width: 14%;padding: 0;">
+                <span class="table-header-label">Test Store No</span> &nbsp;<img
+                  class="logo"
+                  src="assets/images/sort-arrow.png"
+                  alt="sort"
+                />
+              </th>
+              <td mat-cell *matCellDef="let row">{{ row.test_storeno }}</td>
+            </ng-container>
+            <ng-container matColumnDef="test_storedetails">
+              <th mat-header-cell *matHeaderCellDef mat-sort-header style="width: 14%;padding: 0;">
+                <span class="table-header-label">Test Store Details</span> &nbsp;<img
+                  class="logo"
+                  src="assets/images/sort-arrow.png"
+                  alt="sort"
+                />
+              </th>
+              <td mat-cell *matCellDef="let row">{{ row.test_storedetails }}</td>
+            </ng-container>
+
+            <ng-container matColumnDef="control_mapped">
+              <th mat-header-cell *matHeaderCellDef mat-sort-header style="width: 14%;padding: 0;">
+                <span class="table-header-label">Control Store Mapped</span> &nbsp;<img
+                  class="logo"
+                  src="assets/images/sort-arrow.png"
+                  alt="sort"
+                />
+              </th>
+              <td mat-cell *matCellDef="let row">{{ row.control_mapped }}</td>
+            </ng-container>
+            <ng-container matColumnDef="select">
+              <th mat-header-cell *matHeaderCellDef>
+                <span class="table-header-label" style="margin-left: 5px;">Select</span>
+              </th>
+              <td mat-cell *matCellDef="let row">
+                <mat-checkbox
+                  (click)="$event.stopPropagation()"
+                  (change)="$event ? selection.toggle(row) : null"
+                  [checked]="selection.isSelected(row)"
+                  [aria-label]="checkboxLabel(row)"
+                >
+                </mat-checkbox>
+              </td>
+            </ng-container>
+            <!-- TestName Column -->
+            <ng-container matColumnDef="similar_value">
+              <th mat-header-cell *matHeaderCellDef mat-sort-header style="width: 14%;padding: 0;">
+                <span class="table-header-label">Similarity Value</span> &nbsp;<img
+                  class="logo"
+                  src="assets/images/sort-arrow.png"
+                  alt="sort"
+                />
+              </th>
+              <td mat-cell *matCellDef="let row">{{ row.similar_value }}</td>
+            </ng-container>
+
+            <!-- StoreName Column -->
+            <ng-container matColumnDef="corr_value">
+              <th mat-header-cell *matHeaderCellDef mat-sort-header style="width: 14%;">
+                <span class="table-header-label">Correlation Value &nbsp;</span
+                ><img class="logo" src="assets/images/sort-arrow.png" alt="sort" />
+              </th>
+
+              <td mat-cell *matCellDef="let row">{{ row.corr_value }}</td>
+            </ng-container>
+
+            <!-- Details Column -->
+            <ng-container matColumnDef="store_segment">
+              <th mat-header-cell *matHeaderCellDef mat-sort-header style="width: 18%;">
+                <span class="table-header-label">Store Segment</span> &nbsp;<img
+                  class="logo"
+                  src="assets/images/sort-arrow.png"
+                  alt="sort"
+                />
+              </th>
+              <td mat-cell *matCellDef="let row">{{ row.corr_value }}</td>
+            </ng-container>
+
+            <ng-container matColumnDef="avg_duration">
+              <th mat-header-cell *matHeaderCellDef mat-sort-header style="width: 13%;">
+                <span class="table-header-label">Average Duration</span> &nbsp;<img
+                  class="logo"
+                  src="assets/images/sort-arrow.png"
+                  alt="sort"
+                />
+              </th>
+              <td mat-cell *matCellDef="let row">{{ row.avg_duration }}</td>
+            </ng-container>
+
+            <ng-container matColumnDef="act_perform">
+              <th mat-header-cell *matHeaderCellDef mat-sort-header style="width: 16%;">
+                <span class="table-header-label">Activity Performed</span> &nbsp;<img
+                  class="logo"
+                  src="assets/images/sort-arrow.png"
+                  alt="sort"
+                />
+              </th>
+              <td mat-cell *matCellDef="let row">{{ row.act_perform }}</td>
+            </ng-container>
+
+            <ng-container matColumnDef="others">
+              <th mat-header-cell *matHeaderCellDef mat-sort-header style="width: 16%;">
+                <span class="table-header-label">other Store Details like GSV,SCV,RSV</span> &nbsp;<img
+                  class="logo"
+                  src="assets/images/sort-arrow.png"
+                  alt="sort"
+                />
+              </th>
+              <td mat-cell *matCellDef="let row">
+                {{ row.others }}
+              </td>
+            </ng-container>
+
+            <tr mat-header-row *matHeaderRowDef="displayedColumnsControlStore"></tr>
+            <tr
+              mat-row
+              *matRowDef="let row; columns: displayedColumnsControlStore"
+              (click)="selection.toggle(row)"
+            ></tr>
+          </table>
+
+          <div class="row">
+            <div class="col-md-10">
+              <pagination-controls
+                (pageChange)="lp = $event; paginateloadsaved(lp)"
+                nextLabel=""
+                previousLabel=""
+              ></pagination-controls>
+            </div>
+            <div class="col-md-2">
+              <label style="width:43%;float: left;margin-top: 22px;">Per page</label>
+              <select
+                class="form-control"
+                style="width:43%;margin-top: 1rem;"
+                [(ngModel)]="loadperpage"
+                (change)="perpageLoadSaved($event)"
+              >
+                <option value="10"> 10 </option>
+                <option value="25"> 25 </option>
+                <option value="50"> 50 </option>
+              </select>
+            </div>
+          </div>
+          <button mat-raised-button class="btn uploadstorebut" style="float: left;width: 10%;" (click)="GoBack()">
+            <b>Back</b>
+          </button>
+          <button
+            mat-raised-button
+            class="btn uploadstorebut"
+            style="float: left;width: 10%;margin-left: 1%;"
+            (click)="Reset()"
+          >
+            <b>Reset</b>
+          </button>
+          <button
+            mat-raised-button
+            class="btn uploadstorebut pull-right"
+            style="margin: 2% 0 3% 0%;width: 10%;"
+            (click)="NextPage()"
+          >
+            <b>Save & Next</b>
+          </button>
+          <!-- <button mat-raised-button class="btn uploadstorebut pull-right" style="margin: 2% 1% 3% 0%;width: 10%;" (click)="Save()"><b>Save</b></button> -->
+          <button
+            mat-raised-button
+            class="btn uploadstorebut pull-right"
+            style="margin: 2% 1% 3% 0%;width: 10%;"
+            (click)="Validate()"
+          >
+            <b>Validate</b></button
+          ><br /><br />
+          <ng-container *ngIf="validateshow">
+            <span class="validate">Control Store Validated</span>
+          </ng-container>
+        </div>
+      </div>
+    </ng-container>
   </div>
 </div>

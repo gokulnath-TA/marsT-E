@@ -21,6 +21,12 @@ label {
   text-align: left !important;
 }
 
+.validate {
+  margin: 20px 0 0 53%;
+  position: absolute;
+  font-weight: bold;
+}
+
 div.contentdiv {
   width: calc(100vw + 30px);
   height: calc(100vh - 160px);
@@ -37,6 +43,50 @@ div.contentdiv {
 .cnt {
   margin-top: 1rem;
   margin-bottom: 1rem;
+}
+
+table.mat-table {
+  border-spacing: 0 !important;
+  width: 100%;
+}
+
+.mat-elevation-z8 {
+  box-shadow: none !important;
+}
+
+// tr.mat-header-row {
+//   background-color: #0000A0 !important;
+// }
+
+th.mat-header-cell {
+  color: #fff !important;
+  border-right: 3px solid #e0e0e0;
+}
+
+td.mat-cell {
+  padding: 0;
+  border-bottom-width: 3px !important;
+  border-bottom-style: solid !important;
+  border-right: 3px solid #e0e0e0 !important;
+  padding-left: 18px;
+}
+
+.table-header-label {
+  margin-left: 23px;
+  font-size: 16px;
+}
+
+.sub-td {
+  border-bottom: 2px solid #ebebeb;
+  padding: 10px;
+}
+
+.mat-checkbox-inner-container-no-side-margin {
+  margin-left: 40px !important;
+}
+
+.search_filter {
+  float: right !important;
 }
 
 /*Common*/
@@ -66,7 +116,7 @@ div.contentdiv {
 .stg1text {
   font-size: 1.25rem;
   position: relative;
-  top: 37%;
+  top: 3%;
   font-weight: bold;
   color: #000000;
 }
@@ -107,7 +157,7 @@ div.contentdiv {
 .stg2text {
   font-size: 1.25rem;
   position: relative;
-  top: 37%;
+  top: 3%;
   font-weight: bold;
 }
 
@@ -137,7 +187,7 @@ div.contentdiv {
 .stg3text {
   font-size: 1.25rem;
   position: relative;
-  top: 37%;
+  top: 3%;
   font-weight: bold;
   color: #000000;
 }
@@ -150,8 +200,8 @@ div.contentdiv {
 
 /*wizard active class*/
 /*Arch wizard stage color*/
-::ng-deep #w2wizard2 aw-wizard-navigation-bar.horizontal.large-filled ul.steps-indicator li.current .step-indicator {
-  background-color: #0073dd;
+::ng-deep #w1wizard1 aw-wizard-navigation-bar.horizontal.large-filled ul.steps-indicator li.current .step-indicator {
+  background-color: #e6a12f;
 }
 
 /*Arch wizard stage color*/
@@ -178,7 +228,7 @@ div.contentdiv {
   width: 35px;
   height: 35px;
   margin: 0 auto;
-  background-color: #00b050;
+  background-color: #a0a0a0;
   border-radius: 50%;
   text-align: center;
   line-height: 31px;
@@ -202,7 +252,7 @@ div.contentdiv {
 .md-stepper-horizontal .md-step.done .md-step-circle:before {
   font-family: "FontAwesome";
   font-weight: 100;
-  content: "\f00c";
+  content: "1";
 }
 
 .md-stepper-horizontal .md-step.done .md-step-circle *,
@@ -241,7 +291,7 @@ div.contentdiv {
 .fileUpload {
   position: relative;
   overflow: hidden;
-  background-color: #041e42;
+  background-color: #0000a0;
   color: white;
 }
 
@@ -445,7 +495,7 @@ table.mat-table {
 }
 
 tr.mat-header-row {
-  background-color: #041e42 !important;
+  background-color: #0000a0 !important;
 }
 
 th.mat-header-cell {

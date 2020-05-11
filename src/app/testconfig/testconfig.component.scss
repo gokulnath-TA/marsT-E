@@ -56,11 +56,34 @@ label {
   cursor: pointer;
 }
 
+.confval {
+  float: right;
+  font-weight: bold;
+  margin: 3px 0 0 62%;
+  position: absolute;
+}
+
 .calicon {
   position: absolute;
   top: 30px;
   right: 0px;
-  left: 58%;
+  left: 77%;
+}
+
+.step2save {
+  margin: 4% 0px 0px 23%;
+  color: #000;
+  font-weight: bold;
+  position: absolute;
+  font-size: 14px;
+}
+
+.step1save {
+  margin: 2% 0px 0px 4%;
+  color: #000;
+  font-weight: bold;
+  position: absolute;
+  font-size: 14px;
 }
 
 /*Common*/
@@ -90,8 +113,14 @@ label {
 .stg1text {
   font-size: 1.25rem;
   position: relative;
-  top: 37%;
+  top: 3%;
   font-weight: bold;
+}
+
+.confcheck {
+  float: left;
+  width: 4%;
+  margin: -5px 5px 0px 0px;
 }
 
 .label1 {
@@ -99,6 +128,12 @@ label {
   font-size: 20px;
   font-weight: bold;
   color: #695b5b;
+  display: block;
+  text-align: center !important;
+}
+
+.extcenter {
+  display: block;
   text-align: center !important;
 }
 
@@ -145,7 +180,7 @@ td tbody {
 .stg2text {
   font-size: 1.25rem;
   position: relative;
-  top: 37%;
+  top: 3%;
   font-weight: bold;
   color: #000000;
 }
@@ -177,7 +212,7 @@ td tbody {
 .stg3text {
   font-size: 1.25rem;
   position: relative;
-  top: 37%;
+  top: 3%;
   font-weight: bold;
   color: #000000;
 }
@@ -188,8 +223,8 @@ td tbody {
 }
 
 /*Arch wizard stage color*/
-::ng-deep #w1wizard1 aw-wizard-navigation-bar.horizontal.large-filled ul.steps-indicator li.current .step-indicator {
-  background-color: #0073dd;
+::ng-deep #w2wizard2 aw-wizard-navigation-bar.horizontal.large-filled ul.steps-indicator li.current .step-indicator {
+  background-color: #e6a12f;
 }
 
 /*Arch wizard stage color*/
@@ -282,15 +317,39 @@ td tbody {
 
 .breadcrumb-item + .breadcrumb-item::before {
   color: #fff;
+  display: none;
 }
 
 .breadcrumb-item.active {
-  color: #b3bcc5;
+  color: #e6a12f;
+  background-color: #0000a0;
+  border-radius: 3px;
+  font-size: 15px;
+  padding: 0 5px 0 5px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.calendar {
+  width: 2.75rem;
+  background-image: url("assets/images/calendar.png") !important;
+  background-repeat: no-repeat !important;
+  background-size: 23px !important;
+  background-position: center !important;
+}
+
+.nonacttive {
+  color: #0000a0 !important;
+  border-radius: 3px;
+  font-size: 15px;
+  cursor: pointer;
+  padding: 0 5px 0 5px;
+  font-weight: bold;
 }
 
 .createtestlabel {
   margin: 3% 0 0 0;
-  background-color: #0000a0;
+  background-color: #9292ea;
   color: #fff;
   width: 83%;
   height: 35px;
@@ -334,7 +393,7 @@ td tbody {
 
 .compute {
   margin: 0 0 5% 4%;
-  width: 35%;
+  width: 25%;
   background-color: #0000a0;
   color: #fff;
   border-radius: 0;

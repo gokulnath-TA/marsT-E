@@ -1,452 +1,656 @@
 <div class="container-fluid">
   <div class="row">
-	  	<ng-container *ngIf="!savenextshow">
-			<div class="col-md-4">
-				<div class="first stepper stepper-active">
-					<h5 class="stg1text" style="margin: 0 0 35px 0px;">Test Configuration</h5>
-					<!-- <ng-container *ngIf="step1show && !nextstepshow">
+    <ng-container *ngIf="!savenextshow">
+      <div class="col-md-4">
+        <div class="first stepper stepper-active">
+          <h5 class="stg1text" style="margin: 0 0 0px 0px;">Test Configuration</h5>
+          <!-- <ng-container *ngIf="step1show && !nextstepshow">
 						<span style="color: #fff;margin: 20px 0 0 0;font-weight: bold;;">Test Planning - 1</span>
 					</ng-container>
 					<ng-container *ngIf="nextstepshow">
 						<span style="color: #fff;margin: 20px 0 0 0;font-weight: bold;;">Test Planning - 2</span>
 					</ng-container>
-					<ng-container *ngIf="saveandnextshow">
+			 		<ng-container *ngIf="saveandnextshow">
 						<span style="color: #fff;margin: 20px 0 0 0;font-weight: bold;;">Test Planning - 3</span>
 					</ng-container> -->
-					<nav aria-label="breadcrumb">
+          <!-- <nav aria-label="breadcrumb">
 							<ol class="breadcrumb" style="background-color:#E30073;padding: 0 0 0 8%;">
 							<ng-container *ngIf="step1show && !nextstepshow">
-								<li class="breadcrumb-item active" aria-current="page"><a (click)="Previous()">Test Planing-1</a></li><span style="margin: 0 5px 0 5px;"> --> </span>
+								<li class="breadcrumb-item active" aria-current="page"><a (click)="Previous()">Test Planing-1</a></li>
+								
 							</ng-container>
 							<ng-container *ngIf="step1show && nextstepshow || saveandnextshow">
-								<li class="breadcrumb-item"><a (click)="Previous()" style="color: #fff;cursor: pointer;">Test Planing-1</a></li><span style="margin: 0 5px 0 5px;"> --> </span>
+								<li class="breadcrumb-item" style="background-color: #e6a12f;border-radius: 3px;"><a (click)="Previous()" class="nonacttive">Test Planing-1</a></li>
+
 							</ng-container>
 							<ng-container *ngIf="nextstepshow">
-								<li class="breadcrumb-item active" aria-current="page"><a (click)="Back()">Test Planing-2</a></li><span style="margin: 0 5px 0 5px;"> --> </span>
+								<li class="breadcrumb-item active" aria-current="page"><a (click)="Back()">Test Planing-2</a></li>
+								
 							</ng-container>
 							<ng-container *ngIf="!nextstepshow">
-								<li class="breadcrumb-item"><a style="color: #fff;cursor: pointer;" (click)="Back()">Test Planing-2</a></li><span style="margin: 0 5px 0 5px;"> --> </span>
+								<li class="breadcrumb-item" style="background-color: #e6a12f;border-radius: 3px;"><a class="nonacttive" (click)="Back()">Test Planing-2</a></li>
+								
 							</ng-container>
 							<ng-container *ngIf="saveandnextshow">
 								<li class="breadcrumb-item active" aria-current="page"><a>Test Planing-3</a></li>
 							</ng-container>
 							<ng-container *ngIf="!saveandnextshow">
-								<li class="breadcrumb-item"><a style="color: #fff;">Test Planing-3</a></li>
+								<li class="breadcrumb-item" (click)="SaveContinue()" style="background-color: #e6a12f;border-radius: 3px;"><a class="nonacttive">Test Planing-3</a></li>
 							</ng-container>
 							</ol>
-						  </nav>
-					<div class="col-md-12">
-					<!-- <aw-wizard
-						#wizard1
-						id="w1wizard1"
-						[navBarLayout]="'large-filled'"
-						[disableNavigationBar]="true"
-						[defaultStepIndex]="stepindex"
-					>
-						<aw-wizard-step
-						[stepTitle]="''"
-						[stepId]="1"
-						(stepEnter)="enterStep($event)"
-						[navigationSymbol]="{ symbol: '1' }"
-						>
-						<ng-template awWizardStepSymbol *ngIf="CompletedStep">
-							<i class="fa fa-check"></i>
-						</ng-template>
-						</aw-wizard-step>
-						<aw-wizard-step
-						[stepTitle]="''"
-						[stepId]="2"
-						(stepEnter)="enterStep($event)"
-						[navigationSymbol]="{ symbol: '2' }"
-						>
-						</aw-wizard-step>
-					</aw-wizard> -->
-					</div>
-				</div>
-				</div>
-			
-				<div class="col-md-4">
-				<div class="second stepper">
-					<h5 class="stg2text">Control Store Matching</h5>
-					<!-- <div class="md-stepper-horizontal">
-					<div class="md-step">
-						<div class="md-step-circle"><span>3</span></div>
-						<div class="md-step-bar-left"></div>
-						<div class="md-step-bar-right"></div>
-					</div>
-					<div class="md-step">
-						<div class="md-step-circle"><span>4</span></div>
-						<div class="md-step-bar-left"></div>
-						<div class="md-step-bar-right"></div>
-					</div>
-					<div class="md-step">
-						<div class="md-step-circle"><span>5</span></div>
-						<div class="md-step-bar-left"></div>
-						<div class="md-step-bar-right"></div>
-					</div>
-					</div> -->
-				</div>
-				</div>
-			
-				<div class="col-md-4">
-				<div class="third stepper">
-					<h5 class="stg3text">Test Measurement</h5>
-					<!-- <div class="md-stepper-horizontal">
-					<div class="md-step">
-						<div class="md-step-circle"><span>6</span></div>
-						<div class="md-step-bar-left"></div>
-						<div class="md-step-bar-right"></div>
-					</div>
-					<div class="md-step">
-						<div class="md-step-circle"><span>7</span></div>
-						<div class="md-step-bar-left"></div>
-						<div class="md-step-bar-right"></div>
-					</div>
-					</div> -->
-				</div>
-				</div>
-	  </ng-container>
-    
+						  </nav> -->
+          <div class="col-md-12">
+            <aw-wizard
+              #wizard
+              id="w2wizard2"
+              style="margin: 2% 0 0 -7%;"
+              [navBarLayout]="'large-filled'"
+              [disableNavigationBar]="true"
+              [defaultStepIndex]="stepindex"
+            >
+              <aw-wizard-step
+                [stepTitle]="''"
+                [stepId]="1"
+                (stepEnter)="enterStep($event)"
+                [navigationSymbol]="{ symbol: '1' }"
+              >
+                <ng-template awWizardStepSymbol *ngIf="nextstepshow">
+                  <!-- <i class="fa fa-check"></i> -->
+                  <span>1</span>
+                  <aw-wizard-step
+                    [stepTitle]="''"
+                    [stepId]="1"
+                    style="background-color: #0000A0;color: #000;"
+                    (stepEnter)="enterStep($event)"
+                    [navigationSymbol]="{ symbol: '1' }"
+                  >
+                  </aw-wizard-step>
+                </ng-template>
+              </aw-wizard-step>
+              <aw-wizard-step
+                [stepTitle]="''"
+                [stepId]="2"
+                (stepEnter)="enterStep($event)"
+                [navigationSymbol]="{ symbol: '2' }"
+              >
+                <ng-template awWizardStepSymbol *ngIf="CompletedStep2">
+                  <i class="fa fa-check"></i>
+                </ng-template>
+              </aw-wizard-step>
+              <aw-wizard-step
+                [stepTitle]="''"
+                [stepId]="3"
+                (stepEnter)="enterStep($event)"
+                [navigationSymbol]="{ symbol: '3' }"
+              >
+              </aw-wizard-step>
+            </aw-wizard>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-4">
+        <div class="second stepper">
+          <h5 class="stg2text">Control Store Matching</h5>
+          <div class="md-stepper-horizontal">
+            <div class="md-step">
+              <div class="md-step-circle"><span>4</span></div>
+              <div class="md-step-bar-left"></div>
+              <div class="md-step-bar-right"></div>
+            </div>
+            <div class="md-step">
+              <div class="md-step-circle"><span>5</span></div>
+              <div class="md-step-bar-left"></div>
+              <div class="md-step-bar-right"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-4">
+        <div class="third stepper">
+          <h5 class="stg3text">Test Measurement</h5>
+          <div class="md-stepper-horizontal">
+            <div class="md-step">
+              <div class="md-step-circle"><span>6</span></div>
+              <div class="md-step-bar-left"></div>
+              <div class="md-step-bar-right"></div>
+            </div>
+            <div class="md-step">
+              <div class="md-step-circle"><span>7</span></div>
+              <div class="md-step-bar-left"></div>
+              <div class="md-step-bar-right"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </ng-container>
   </div>
 
   <ng-container *ngIf="!createtestshow">
-      <div class="container" [hidden]="showcnt1" style="margin-top: 3%;">
-          <button mat-raised-button class="btn createbutton" (click)="CreateTest()"><b>Create a New Test</b></button><br>
-          <h3 style="margin-top: 6%;"><b>Test Summary</b></h3>
-          <div style="float:right;">
-              <input
-                class="form-control"
-                type="text"
-                (keyup)="FilterLoadSavedTest($event.target.value)"
-                placeholder="&#xF002;&nbsp; Search"
-                style="font-family:Arial, FontAwesome;margin-bottom: 1rem;"
-              />
-            </div>
-          <table
-          style="margin-top: 3%;"
-          mat-table
-          matSort
-          [dataSource]="
-            LoadSavedTestdata
-              | paginate: { itemsPerPage: loadsize, currentPage: lp, totalItems: Load_saved_DATA.length }
-          "
-          (matSortChange)="sortDataLoadSaved($event)"
-          class="mat-elevation-z8"
-        >
-          <!-- TestName Column -->
-          <ng-container matColumnDef="test_name">
-            <th mat-header-cell *matHeaderCellDef mat-sort-header style="width: 14%;padding: 0;">
-              <span class="table-header-label">Test Names</span> &nbsp;<img
-                class="logo"
-                src="assets/images/sort-arrow.png"
-                alt="sort"
-              />
-            </th>
-            <td mat-cell *matCellDef="let row">{{ row.test_name }}</td>
-          </ng-container>
-    
-          <!-- StoreName Column -->
-          <ng-container matColumnDef="status">
-            <th mat-header-cell *matHeaderCellDef mat-sort-header style="width: 14%;">
-              <span class="table-header-label">Status &nbsp;</span
-              ><img class="logo" src="assets/images/sort-arrow.png" alt="sort" />
-            </th>
-    
-            <td mat-cell *matCellDef="let row">{{row.status}}</td>
-          </ng-container>
-    
-          <!-- Details Column -->
-          <ng-container matColumnDef="details">
-              <th mat-header-cell *matHeaderCellDef mat-sort-header style="width: 18%;">
-                <span class="table-header-label">Details</span> &nbsp;<img
-                  class="logo"
-                  src="assets/images/sort-arrow.png"
-                  alt="sort"
-                />
-              </th>
-              <td mat-cell *matCellDef="let row">{{ row.details }}</td>
-            </ng-container>
-    
-          <ng-container matColumnDef="Created">
-            <th mat-header-cell *matHeaderCellDef mat-sort-header style="width: 13%;">
-              <span class="table-header-label">Created at</span> &nbsp;<img
-                class="logo"
-                src="assets/images/sort-arrow.png"
-                alt="sort"
-              />
-            </th>
-            <td mat-cell *matCellDef="let row">{{row.Created}}</td>
-          </ng-container>
-    
-          <ng-container matColumnDef="test_window">
-              <th mat-header-cell *matHeaderCellDef mat-sort-header style="width: 16%;">
-                <span class="table-header-label">Test Window</span> &nbsp;<img
-                  class="logo"
-                  src="assets/images/sort-arrow.png"
-                  alt="sort"
-                />
-              </th>
-              <td mat-cell *matCellDef="let row">{{row.test_window}}</td>
-            </ng-container>
-    
-          <ng-container matColumnDef="Modified">
-            <th mat-header-cell *matHeaderCellDef mat-sort-header style="width: 16%;">
-              <span class="table-header-label">Last Modified at</span> &nbsp;<img
-                class="logo"
-                src="assets/images/sort-arrow.png"
-                alt="sort"
-              />
-            </th>
-            <td mat-cell *matCellDef="let row">
-              {{row.Modified}}
-            </td>
-          </ng-container>
-          <!-- Actions Column -->
-    
-          <ng-container matColumnDef="Actions">
-            <th mat-header-cell *matHeaderCellDef mat-sort-header>
-              <span class="table-header-label">Actions &nbsp;</span>
-            </th>
-            <td mat-cell *matCellDef="let row">
-              <!-- <button mat-raised-button class="edit_button penicon" (click)="LoadData(row.test_id,row.test_name)"> -->
-                <img class="pencil" src="assets/images/edit.png" style="width: 13px" />
-              <!-- </button> -->
-    
-              <!-- <button mat-raised-button color="delete_button" class="deleteicon" (click)="DeleteData(row.test_id)"> -->
-                <img class="bin" src="assets/images/delete.png" style="width: 13px" />
-			  <!-- </button> -->
-
-			  <!-- <button mat-raised-button color="delete_button" class="deleteicon" (click)="DeleteData(row.test_id)"> -->
-				<img class="bin" src="assets/images/view.png" style="width: 13px" />
-			<!-- </button> -->
-            </td>
-          </ng-container>
-    
-          <tr mat-header-row *matHeaderRowDef="displayedColumnsLoadSaved"></tr>
-          <tr mat-row *matRowDef="let row; columns: displayedColumnsLoadSaved" (click)="selection.toggle(row)"></tr>
-        </table>
-        <div class="row">
-            <div class="col-md-10">
-              <pagination-controls
-                (pageChange)="lp = $event; paginateloadsaved(lp)"
-                nextLabel=""
-                previousLabel=""
-              ></pagination-controls>
-            </div>
-            <div class="col-md-2">
-              <label style="width:43%;float: left;margin-top: 22px;">Per page</label>
-              <select
-                class="form-control"
-                style="width:43%;margin-top: 1rem;"
-                [(ngModel)]="loadperpage"
-                (change)="perpageLoadSaved($event)"
-              >
-                <option value="10"> 10 </option>
-                <option value="25"> 25 </option>
-                <option value="50"> 50 </option>
-              </select>
-            </div>
-          </div>
+    <div class="container" [hidden]="showcnt1" style="margin-top: 3%;">
+      <button mat-raised-button class="btn createbutton" (click)="CreateTest()"><b>Create a New Test</b></button><br />
+      <h3 style="margin-top: 6%;"><b>Test Summary</b></h3>
+      <div style="float:right;">
+        <input
+          class="form-control"
+          type="text"
+          (keyup)="FilterLoadSavedTest($event.target.value)"
+          placeholder="&#xF002;&nbsp; Search"
+          style="font-family:Arial, FontAwesome;margin-bottom: 1rem;"
+        />
       </div>
+      <table
+        style="margin-top: 3%;"
+        mat-table
+        matSort
+        [dataSource]="
+          LoadSavedTestdata | paginate: { itemsPerPage: loadsize, currentPage: lp, totalItems: Load_saved_DATA.length }
+        "
+        (matSortChange)="sortDataLoadSaved($event)"
+        class="mat-elevation-z8"
+      >
+        <!-- TestName Column -->
+        <ng-container matColumnDef="test_name">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header style="width: 14%;padding: 0;">
+            <span class="table-header-label">Test Names</span> &nbsp;<img
+              class="logo"
+              src="assets/images/sort-arrow.png"
+              alt="sort"
+            />
+          </th>
+          <td mat-cell *matCellDef="let row">{{ row.test_name }}</td>
+        </ng-container>
+
+        <!-- StoreName Column -->
+        <ng-container matColumnDef="status">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header style="width: 14%;">
+            <span class="table-header-label">Status &nbsp;</span
+            ><img class="logo" src="assets/images/sort-arrow.png" alt="sort" />
+          </th>
+
+          <td mat-cell *matCellDef="let row">{{ row.status }}</td>
+        </ng-container>
+
+        <!-- Details Column -->
+        <ng-container matColumnDef="details">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header style="width: 18%;">
+            <span class="table-header-label">Details</span> &nbsp;<img
+              class="logo"
+              src="assets/images/sort-arrow.png"
+              alt="sort"
+            />
+          </th>
+          <td mat-cell *matCellDef="let row">{{ row.details }}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="Created">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header style="width: 13%;">
+            <span class="table-header-label">Created at</span> &nbsp;<img
+              class="logo"
+              src="assets/images/sort-arrow.png"
+              alt="sort"
+            />
+          </th>
+          <td mat-cell *matCellDef="let row">{{ row.Created }}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="test_window">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header style="width: 16%;">
+            <span class="table-header-label">Test Window</span> &nbsp;<img
+              class="logo"
+              src="assets/images/sort-arrow.png"
+              alt="sort"
+            />
+          </th>
+          <td mat-cell *matCellDef="let row">{{ row.test_window }}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="Modified">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header style="width: 16%;">
+            <span class="table-header-label">Last Modified at</span> &nbsp;<img
+              class="logo"
+              src="assets/images/sort-arrow.png"
+              alt="sort"
+            />
+          </th>
+          <td mat-cell *matCellDef="let row">
+            {{ row.Modified }}
+          </td>
+        </ng-container>
+        <!-- Actions Column -->
+
+        <ng-container matColumnDef="Actions">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>
+            <span class="table-header-label">Actions &nbsp;</span>
+          </th>
+          <td mat-cell *matCellDef="let row">
+            <!-- <button mat-raised-button class="edit_button penicon" (click)="LoadData(row.test_id,row.test_name)"> -->
+            <img class="pencil" src="assets/images/edit.png" style="width: 13px" />
+            <!-- </button> -->
+
+            <!-- <button mat-raised-button color="delete_button" class="deleteicon" (click)="DeleteData(row.test_id)"> -->
+            <img class="bin" src="assets/images/delete.png" style="width: 13px" />
+            <!-- </button> -->
+
+            <!-- <button mat-raised-button color="delete_button" class="deleteicon" (click)="DeleteData(row.test_id)"> -->
+            <img class="bin" src="assets/images/view.png" style="width: 13px" />
+            <!-- </button> -->
+          </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumnsLoadSaved"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumnsLoadSaved" (click)="selection.toggle(row)"></tr>
+      </table>
+
+      <div class="row">
+        <div class="col-md-10">
+          <pagination-controls
+            (pageChange)="lp = $event; paginateloadsaved(lp)"
+            nextLabel=""
+            previousLabel=""
+          ></pagination-controls>
+        </div>
+        <div class="col-md-2">
+          <label style="width:43%;float: left;margin-top: 22px;">Per page</label>
+          <select
+            class="form-control"
+            style="width:43%;margin-top: 1rem;"
+            [(ngModel)]="loadperpage"
+            (change)="perpageLoadSaved($event)"
+          >
+            <option value="10"> 10 </option>
+            <option value="25"> 25 </option>
+            <option value="50"> 50 </option>
+          </select>
+        </div>
+      </div>
+    </div>
   </ng-container>
-  
 
   <ng-container *ngIf="step1show && !nextstepshow">
-    
     <div class="row">
-        <div class="col-md-4 testform" [hidden]="plantestdrpdown">
-			<label class="createtestlabel">Test Planning</label>
-			<div class="form-group" style="max-width: 83%;">
-				<label>Enter Test Name</label>
-				<input class="form-control borderradnone" type="text" [(ngModel)]="TestName" style="font-family:Arial, FontAwesome;margin-bottom: 1rem;" placeholder="Enter Test Name"/>
-			</div>
-			<div class="form-group" style="margin: 0;max-width: 83%;">
-				<label>Select Type of Test</label>
-				<ngx-select
-				[items]="typetest"
-				[(ngModel)]="TypeTest"
-				(select)="showcontrolstore($event)"
-				[noAutoComplete]="true"
-				placeholder="--- Select ---"
-				style="width: 100%;"
-				class="borderradnone"
-				>
-				</ngx-select>
-			</div>
-			<div class="form-group" style="margin-top: 4%;max-width: 83%;">
-					<label>Select Target Variable</label>
-					<ngx-select
-					[items]="plantest"
-					[(ngModel)]="TargetVariable"
-					(select)="showcontrolstore($event)"
-					[noAutoComplete]="true"
-					placeholder="--- Select ---"
-					style="width: 100%;"
-					class="borderradnone"
-					>
-					</ngx-select>
-				</div>
-				<button mat-raised-button class="btn createbutton" style="width: 35%;margin: 196px 0 0 0px;" (click)="GoBack()"><b>Back</b></button>
-		  </div>
-		  <div class="col-md-3">
-				<div class="form-group" style="max-width: 100%;">
-					<label>Enter Brief Description</label>
-					<textarea class="form-control borderradnone" [(ngModel)]="Description" style="font-family:Arial, FontAwesome;margin-bottom: 1rem;height: 100px;" placeholder="Enter Description"></textarea>
-					<!-- <input class="form-control borderradnone" type="text" style="font-family:Arial, FontAwesome;margin-bottom: 1rem;"/> -->
-				</div>
-				<div class="form-group" style="max-width: 100%;">
-					<label>Enter Additional Details</label>
-					<textarea class="form-control borderradnone" [(ngModel)]="AddDetails" style="font-family:Arial, FontAwesome;margin-bottom: 1rem;height: 100px;" placeholder="Enter Additional Details"></textarea>
-					<!-- <input class="form-control borderradnone" type="text" style="font-family:Arial, FontAwesome;margin-bottom: 1rem;"/> -->
-				</div>
-		  </div>
-		  <div class="col-md-4">
-				<div class="form-group" style="max-width: 100%;">
-					<mat-card class="testcard">
-						<label class="testappsel">Test Applicability Selection</label>
-						<div class="form-group" style="margin: 0 0 0 0px;max-width: 100%;">
-							<label style="color: #0000A0;">Select Banner</label>
-							<ngx-select
-							[items]="banner"
-							[(ngModel)]="Banner"
-							(select)="showcontrolstore($event)"
-							[noAutoComplete]="true"
-							placeholder="--- Select ---"
-							style="width: 100%;"
-							class="borderradnone"
-							>
-							</ngx-select>
-						</div>
-						<div class="form-group applform">
-							<label style="color: #0000A0;">Select Segment</label>
-							<ngx-select
-							[items]="segment"
-							[(ngModel)]="Segment"
-							(select)="showcontrolstore($event)"
-							[noAutoComplete]="true"
-							placeholder="--- Select ---"
-							style="width: 100%;"
-							class="borderradnone"
-							>
-							</ngx-select>
-						</div>
-						<div class="form-group applform">
-							<label style="color: #0000A0;">Select Territory</label>
-							<ngx-select
-							[items]="territory"
-							[(ngModel)]="Territory"
-							(select)="showcontrolstore($event)"
-							[noAutoComplete]="true"
-							placeholder="--- Select ---"
-							style="width: 100%;"
-							class="borderradnone"
-							>
-							</ngx-select>
-						</div>
-						<div class="form-group applform">
-							<label style="color: #0000A0;">Select Store Grid</label>
-							<ngx-select
-							[items]="storegrid"
-							[(ngModel)]="StoreGrid"
-							(select)="showcontrolstore($event)"
-							[noAutoComplete]="true"
-							placeholder="--- Select ---"
-							style="width: 100%;"
-							class="borderradnone"
-							>
-							</ngx-select>
-						</div>
-						<div class="form-group applform">
-							<label style="color: #0000A0;">Select Category</label>
-							<ngx-select
-							[items]="category"
-							[(ngModel)]="Category"
-							(select)="showcontrolstore($event)"
-							[noAutoComplete]="true"
-							placeholder="--- Select ---"
-							style="width: 100%;"
-							class="borderradnone"
-							>
-							</ngx-select>
-						</div>
-					</mat-card>
-				</div>
-				<button mat-raised-button type="submit" class="btn createbutton" style="width: 35%;margin: 0 0 0 13%;" (click)="SavePlanning()"><b>Save</b></button>
-				<button mat-raised-button class="btn createbutton pull-right" style="width: 35%;margin-bottom: 5%;" (click)="NextStep()"><b>Next</b></button>
-		  </div>
+      <div class="col-md-4 testform" [hidden]="plantestdrpdown">
+        <label class="createtestlabel">Test Planning</label>
+        <div class="form-group" style="max-width: 83%;">
+          <label>Enter Test Name</label><span style="color: red;font-size: 18px;"> * </span
+          ><img
+            class="infoicon"
+            matTooltip="Enter Test Name Here"
+            [matTooltipPosition]="position.value"
+            src="assets/images/information.png"
+            alt="sort"
+          />
+          <input
+            class="form-control borderradnone"
+            type="text"
+            [(ngModel)]="TestName"
+            style="font-family:Arial, FontAwesome;margin-bottom: 1rem;"
+            (keypress)="testname()"
+            placeholder="Enter Test Name"
+          />
+          <ng-container *ngIf="nameshow">
+            <span style="color: red;">Please Enter Test Name</span>
+          </ng-container>
+        </div>
+        <div class="form-group" style="margin: 0;max-width: 83%;">
+          <label>Select Type of Test</label><span style="color: red;font-size: 18px;"> * </span
+          ><img
+            class="infoicon"
+            matTooltip="Select Type of Test Here"
+            [matTooltipPosition]="position.value"
+            src="assets/images/information.png"
+            alt="sort"
+          />
+          <ngx-select
+            [items]="typetest"
+            [(ngModel)]="TypeTest"
+            (select)="showcontrolstore1($event)"
+            [noAutoComplete]="true"
+            placeholder="--- Select ---"
+            style="width: 100%;"
+            class="borderradnone"
+          >
+          </ngx-select>
+          <!-- <ng-multiselect-dropdown
+                  [placeholder]="'---Select---'"
+                  [data]="typetest"
+                  (onSelect)="TypeShow($event)"
+                  (onSelectAll)="onMetricSelectAll($event)"
+                  (onDeSelect)="onMetricDeSelect($event)"
+                  (onDeSelectAll)="onMetricDeSelectAll($event)"
+				  [settings]="MeaurementMetricSet"
+                  [(ngModel)]="TypeTest"
+                  style="border-radius: 0;"
+                >
+				</ng-multiselect-dropdown> -->
+          <ng-container *ngIf="typeshow">
+            <span style="color: red;">Please Select Type of Test</span>
+          </ng-container>
+        </div>
+        <div class="form-group" style="margin-top: 4%;max-width: 83%;">
+          <label>Select Target Variable</label><span style="color: red;font-size: 18px;"> * </span
+          ><img
+            class="infoicon"
+            matTooltip="Select Target Variable Here"
+            [matTooltipPosition]="position.value"
+            src="assets/images/information.png"
+            alt="sort"
+          />
+          <ngx-select
+            [items]="plantest"
+            [(ngModel)]="TargetVariable"
+            (select)="showcontrolstore($event)"
+            [noAutoComplete]="true"
+            placeholder="--- Select ---"
+            style="width: 100%;"
+            class="borderradnone"
+          >
+          </ngx-select>
+          <!-- <ng-multiselect-dropdown
+                  [placeholder]="'---Select---'"
+                  [data]="plantest"
+                  (onSelect)="Target($event)"
+                  (onSelectAll)="onMetricSelectAll($event)"
+                  (onDeSelect)="onMetricDeSelect($event)"
+                  (onDeSelectAll)="onMetricDeSelectAll($event)"
+                  [settings]="MeaurementMetricSet"
+                  [(ngModel)]="TargetVariable"
+                  style="border-radius: 0;"
+                >
+				</ng-multiselect-dropdown> -->
+          <ng-container *ngIf="targetshow">
+            <span style="color: red;">Please Select Target Variable</span>
+          </ng-container>
+        </div>
+        <button mat-raised-button class="btn createbutton" style="width: 35%;margin: 196px 0 0 0px;" (click)="GoBack()">
+          <b>Back</b>
+        </button>
+      </div>
+      <div class="col-md-3">
+        <ng-container *ngIf="nextshow">
+          <div class="form-group" style="max-width: 100%;">
+            <label>Enter Brief Description</label
+            ><img
+              class="infoicon"
+              matTooltip="Which is the RTM element to be observed (eg. Duration), What is the type of change made to the test group (eg. reduction in duration), What is the planned value (eg. 50minutes), What is the actual value observed in the market (eg. 85 minutes)"
+              [matTooltipPosition]="position.value"
+              src="assets/images/information.png"
+              alt="sort"
+            />
+            <textarea
+              class="form-control borderradnone"
+              [(ngModel)]="Description"
+              style="font-family:Arial, FontAwesome;margin-bottom: 1rem;height: 100px;"
+              placeholder="Enter Description"
+            ></textarea>
+            <!-- <input class="form-control borderradnone" type="text" style="font-family:Arial, FontAwesome;margin-bottom: 1rem;"/> -->
+          </div>
+          <div class="form-group" style="max-width: 100%;">
+            <label>Enter Additional Details</label>
+            <textarea
+              class="form-control borderradnone"
+              [(ngModel)]="AddDetails"
+              style="font-family:Arial, FontAwesome;margin-bottom: 1rem;height: 100px;"
+              placeholder="Enter Additional Details"
+            ></textarea>
+            <!-- <input class="form-control borderradnone" type="text" style="font-family:Arial, FontAwesome;margin-bottom: 1rem;"/> -->
+          </div>
+        </ng-container>
+      </div>
+      <div class="col-md-4">
+        <ng-container *ngIf="nextshow">
+          <div class="form-group" style="max-width: 100%;">
+            <mat-card class="testcard">
+              <label class="testappsel">Test Applicability Selection</label>
+              <div class="form-group" style="margin: 0 0 0 0px;max-width: 100%;">
+                <label style="color: #0000A0;">Select Banner</label><span style="color: red;font-size: 18px;"> * </span>
+                <!-- <ngx-select
+								[items]="banner"
+								[(ngModel)]="Banner"
+								(select)="showcontrolstore($event)"
+								[noAutoComplete]="true"
+								placeholder="--- Select ---"
+								style="width: 100%;"
+								class="borderradnone"
+								>
+								</ngx-select> -->
+                <ng-multiselect-dropdown
+                  [placeholder]="'---Select---'"
+                  [data]="banner"
+                  (onSelect)="BannerShow($event)"
+                  (onSelectAll)="onMetricSelectAll($event)"
+                  (onDeSelect)="onMetricDeSelect($event)"
+                  (onDeSelectAll)="onMetricDeSelectAll($event)"
+                  [settings]="MeaurementMetricSet"
+                  [(ngModel)]="Banner"
+                  style="border-radius: 0;"
+                >
+                </ng-multiselect-dropdown>
+                <ng-container *ngIf="bannershow">
+                  <span style="color: red;">Please Select Banner</span>
+                </ng-container>
+              </div>
+              <div class="form-group applform">
+                <label style="color: #0000A0;">Select Segment</label
+                ><span style="color: red;font-size: 18px;"> * </span>
+                <!-- <ngx-select
+								[items]="segment"
+								[(ngModel)]="Segment"
+								(select)="showcontrolstore($event)"
+								[noAutoComplete]="true"
+								placeholder="--- Select ---"
+								style="width: 100%;"
+								class="borderradnone"
+								>
+								</ngx-select> -->
+                <ng-multiselect-dropdown
+                  [placeholder]="'---Select---'"
+                  [data]="segment"
+                  (onSelect)="SegmentShow($event)"
+                  (onSelectAll)="onMetricSelectAll($event)"
+                  (onDeSelect)="onMetricDeSelect($event)"
+                  (onDeSelectAll)="onMetricDeSelectAll($event)"
+                  [settings]="MeaurementMetricSet"
+                  [(ngModel)]="Segment"
+                  style="border-radius: 0;"
+                >
+                </ng-multiselect-dropdown>
+                <ng-container *ngIf="segmentshow">
+                  <span style="color: red;">Please Select Segment</span>
+                </ng-container>
+              </div>
+              <div class="form-group applform">
+                <label style="color: #0000A0;">Select Territory</label
+                ><span style="color: red;font-size: 18px;"> * </span>
+                <!-- <ngx-select
+								[items]="territory"
+								[(ngModel)]="Territory"
+								(select)="showcontrolstore($event)"
+								[noAutoComplete]="true"
+								placeholder="--- Select ---"
+								style="width: 100%;"
+								class="borderradnone"
+								>
+								</ngx-select> -->
+                <ng-multiselect-dropdown
+                  [placeholder]="'---Select---'"
+                  [data]="territory"
+                  (onSelect)="TerritoryShow($event)"
+                  (onSelectAll)="onMetricSelectAll($event)"
+                  (onDeSelect)="onMetricDeSelect($event)"
+                  (onDeSelectAll)="onMetricDeSelectAll($event)"
+                  [settings]="MeaurementMetricSet"
+                  [(ngModel)]="Territory"
+                  style="border-radius: 0;"
+                >
+                </ng-multiselect-dropdown>
+                <ng-container *ngIf="territoryshow">
+                  <span style="color: red;">Please Select Territory</span>
+                </ng-container>
+              </div>
+              <div class="form-group applform">
+                <label style="color: #0000A0;">Select Store Grid</label
+                ><span style="color: red;font-size: 18px;"> * </span>
+                <!-- <ngx-select
+								[items]="storegrid"
+								[(ngModel)]="StoreGrid"
+								(select)="showcontrolstore($event)"
+								[noAutoComplete]="true"
+								placeholder="--- Select ---"
+								style="width: 100%;"
+								class="borderradnone"
+								>
+								</ngx-select> -->
+                <ng-multiselect-dropdown
+                  [placeholder]="'---Select---'"
+                  [data]="storegrid"
+                  (onSelect)="StoreGridShow($event)"
+                  (onSelectAll)="onMetricSelectAll($event)"
+                  (onDeSelect)="onMetricDeSelect($event)"
+                  (onDeSelectAll)="onMetricDeSelectAll($event)"
+                  [settings]="MeaurementMetricSet"
+                  [(ngModel)]="StoreGrid"
+                  style="border-radius: 0;"
+                >
+                </ng-multiselect-dropdown>
+                <ng-container *ngIf="storegridshow">
+                  <span style="color: red;">Please Select Store Grid</span>
+                </ng-container>
+              </div>
+              <div class="form-group applform">
+                <label style="color: #0000A0;">Select Category</label
+                ><span style="color: red;font-size: 18px;"> * </span>
+                <!-- <ngx-select
+								[items]="category"
+								[(ngModel)]="Category"
+								(select)="showcontrolstore($event)"
+								[noAutoComplete]="true"
+								placeholder="--- Select ---"
+								style="width: 100%;"
+								class="borderradnone"
+								>
+								</ngx-select> -->
+                <ng-multiselect-dropdown
+                  [placeholder]="'---Select---'"
+                  [data]="category"
+                  (onSelect)="CategoryShow($event)"
+                  (onSelectAll)="onMetricSelectAll($event)"
+                  (onDeSelect)="onMetricDeSelect($event)"
+                  (onDeSelectAll)="onMetricDeSelectAll($event)"
+                  [settings]="MeaurementMetricSet"
+                  [(ngModel)]="Category"
+                  style="border-radius: 0;"
+                >
+                </ng-multiselect-dropdown>
+                <ng-container *ngIf="categoryshow">
+                  <span style="color: red;">Please Select Category</span>
+                </ng-container>
+              </div>
+            </mat-card>
+          </div>
+          <button
+            mat-raised-button
+            type="submit"
+            class="btn createbutton"
+            style="width: 35%;margin: 0 0 0 13%;"
+            (click)="SavePlanning()"
+          >
+            <b>Save</b>
+          </button>
+          <button
+            mat-raised-button
+            class="btn createbutton pull-right"
+            style="width: 35%;margin-bottom: 5%;"
+            (click)="NextStep()"
+          >
+            <b>Next</b></button
+          ><br />
+          <ng-container *ngIf="saveshow">
+            <span class="step1save">Saved Successfully - 0 Minutes</span>
+          </ng-container>
+        </ng-container>
+      </div>
     </div>
-      
   </ng-container>
 
   <ng-container *ngIf="nextstepshow && !savecontshow">
-	  <div class="row">
-			<div class="col-md-3 testform">
-				<!-- <label class="testplanform">Test Planning</label> -->
-				<label class="createtestlabel" style="width: 100%;">Test Parameter Selection</label>
-				<label class="label1">Enter values for any three of the following metrics</label>
-				<!-- <label class="testplanform">Test Parameter Selection</label> -->
-				<div class="form-group" style="margin: 7% 0 0 0;max-width: 100%;">
-					<label>Pre-Test Window</label>
-					<div class="pretestborder">
-						<div class="row">
-							<div class="col-md-6">
-								<label>Start</label>
-								<input class="form-control borderradnone" [(ngModel)]="PreTestStart" type="text" name="start" style="font-family:Arial, FontAwesome;margin-bottom: 1rem;" [matDatepicker]="picker1"/>
-									<mat-datepicker-toggle matSuffix class="calicon col-md-12" [for]="picker1"></mat-datepicker-toggle>
-									<mat-datepicker #picker1 startView="year" [startAt]="startDate"></mat-datepicker>
-							</div>
-							<div class="col-md-6">
-								<label>End</label>
-								<input class="form-control borderradnone" [(ngModel)]="PreTestEnd" type="text" name="end" style="font-family:Arial, FontAwesome;margin-bottom: 1rem;" [matDatepicker]="picker2"/>
+    <div class="row">
+      <div class="col-md-3 testform">
+        <!-- <label class="testplanform">Test Planning</label> -->
+        <label class="createtestlabel" style="width: 100%;">Test Window Selection</label>
+        <!-- <label class="testplanform">Test Parameter Selection</label> -->
+        <div class="form-group" style="margin: 7% 0 0 0;max-width: 100%;">
+          <label>Pre-Test Window</label><span style="color: red;font-size: 18px;"> * </span
+          ><img
+            class="infoicon"
+            matTooltip="Select Start and End Date of Pre-Test Window"
+            [matTooltipPosition]="position.value"
+            src="assets/images/information.png"
+            alt="sort"
+          />
+          <div class="pretestborder">
+            <div class="row">
+              <div class="col-md-6">
+                <label>Start</label>
+                <!-- <input class="form-control borderradnone" [(ngModel)]="PreTestStart" type="text" name="start" style="font-family:Arial, FontAwesome;margin-bottom: 1rem;" [matDatepicker]="picker1"/>
+									<mat-datepicker-toggle matSuffix class="calicon col-md-12" [for]="picker1" (dateSelect)="PreStartDate($event)"></mat-datepicker-toggle>
+									<mat-datepicker #picker1 startView="year" (dateSelect)="PreStartDate($event)" [startAt]="startDate"></mat-datepicker> -->
+
+                <input
+                  class="form-control borderradnone"
+                  readonly
+                  name="prestartdt"
+                  [(ngModel)]="model1"
+                  [minDate]="this.premindate"
+                  [maxDate]="this.premaxdate"
+                  [disabled]="loaddatas"
+                  ngbDatepicker
+                  #d1="ngbDatepicker"
+                  [placement]="'top'"
+                  (dateSelect)="PreStartDate($event)"
+                  style="font-family:Arial, FontAwesome;margin-bottom: 1rem;background-color:#fff;width:130px;"
+                />
+                <button
+                  class="btn btn-outline-secondary calendar calicon"
+                  (click)="d1.toggle()"
+                  style="top:36px;height: 30px;width: 20px;"
+                  type="button"
+                ></button>
+              </div>
+              <div class="col-md-6">
+                <label>End</label>
+                <!-- <input class="form-control borderradnone" [(ngModel)]="PreTestEnd" type="text" name="end" style="font-family:Arial, FontAwesome;margin-bottom: 1rem;" [matDatepicker]="picker2"/>
 								<mat-datepicker-toggle matSuffix class="calicon col-md-12" [for]="picker2"></mat-datepicker-toggle>
-									<mat-datepicker #picker2 startView="year" [startAt]="startDate"></mat-datepicker>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="form-group" style="margin: 7% 0 10% 0;max-width: 100%;">
-					<label>Test Window</label>
-					<div class="pretestborder">
-						<div class="row">
-							<div class="col-md-6">
-								<label>Start</label>
-								<input class="form-control borderradnone" [(ngModel)]="TestStart" type="text" style="font-family:Arial, FontAwesome;margin-bottom: 1rem;" [matDatepicker]="picker3"/>
-								<mat-datepicker-toggle matSuffix class="calicon col-md-12" [for]="picker3"></mat-datepicker-toggle>
-									<mat-datepicker #picker3 startView="year" [startAt]="startDate"></mat-datepicker>
-							</div>
-							<div class="col-md-6">
-								<label>End</label>
-								<input class="form-control borderradnone" [(ngModel)]="TestEnd" type="text" style="font-family:Arial, FontAwesome;margin-bottom: 1rem;" [matDatepicker]="picker4"/>
-								<mat-datepicker-toggle matSuffix class="calicon col-md-12" [for]="picker4"></mat-datepicker-toggle>
-									<mat-datepicker #picker4> startView="year" [startAt]="startDate"</mat-datepicker>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="form-group" style="max-width: 100%;margin: 6% 0 0 0;">
-					<label>Enter Confidence Level</label><img class="infoicon" matTooltip="Enter Confidence Level in % , eg 80, 95 etc" [matTooltipPosition]="position.value" src="assets/images/information.png" alt="sort" />
-					<input class="form-control borderradnone" type="text" placeholder="Enter Confidence Level" (keypress)="omit_char($event)" [(ngModel)]="ConfLevel" style="font-family:Arial, FontAwesome;margin-bottom: 1rem;width: 100%;"/>
-				</div>
-				<div class="form-group" style="margin: 0;max-width: 100%;">
-					<label>Margin of Error</label><img class="infoicon" matTooltip="Minimum difference in target variable to be measured in % eg, 3, 5" [matTooltipPosition]="position.value" src="assets/images/information.png" alt="sort" />
-					<!-- <ngx-select
-					[items]="error"
-					[(ngModel)]="itemId"
-					(select)="showcontrolstore($event)"
-					[noAutoComplete]="true"
-					placeholder="--- Select ---"
-					style="width: 100%;"
-					class="borderradnone"
-					>
-					</ngx-select> -->
-					<input class="form-control borderradnone" type="text" placeholder="Enter No of Error" (keypress)="omit_char($event)" [(ngModel)]="NoofError" style="font-family:Arial, FontAwesome;margin-bottom: 1rem;width: 100%;"/>
-				</div>
-				<div class="form-group" style="margin: 7% 0 7% 0;max-width: 100%;">
-					<label>Number of Test Stores</label>
-					<input class="form-control borderradnone" (keypress)="omit_char($event)" placeholder="Number of Test Stores" [(ngModel)]="NoofTestStore" type="text" style="font-family:Arial, FontAwesome;margin-bottom: 1rem;"/>
-				</div>
-				
-				<!-- <div class="form-group" style="margin: 7% 0 0 0;max-width: 100%;">
+									<mat-datepicker #picker2 startView="year" [startAt]="startDate"></mat-datepicker> -->
+                <input
+                  class="form-control borderradnone"
+                  readonly
+                  name="preenddt"
+                  [(ngModel)]="model2"
+                  [minDate]="this.premindate"
+                  [maxDate]="this.premaxdate"
+                  [disabled]="loaddatas"
+                  ngbDatepicker
+                  #d2="ngbDatepicker"
+                  [placement]="'top'"
+                  (dateSelect)="PreEndDate($event)"
+                  style="font-family:Arial, FontAwesome;margin-bottom: 1rem;background-color:#fff;width:130px;"
+                />
+                <button
+                  class="btn btn-outline-secondary calendar calicon"
+                  (click)="d2.toggle()"
+                  style="top:36px;height: 30px;width: 20px;"
+                  type="button"
+                ></button>
+              </div>
+            </div>
+            <ng-container *ngIf="predateshow">
+              <span>Duration : {{ predays }} Weeks</span>
+            </ng-container>
+          </div>
+        </div>
+        <!-- <div class="form-group" style="margin: 7% 0 0 0;max-width: 100%;">
 					<label>Duration of Test Window</label>
 					<ngx-select
 					[items]="plantest"
@@ -459,201 +663,462 @@
 					>
 					</ngx-select>
 				</div> -->
-				
-				<button mat-raised-button class="btn goback" (click)="Previous()" style="float: left;"><b>Back</b></button>
-				<button mat-raised-button class="btn refresh" style="float: left;" (click)="ResetTestParameter()"><b>Reset</b></button>
-				<button mat-raised-button class="btn compute" style="float: left;"><b>Compute</b></button>
-			</div>
-			<div class="col-md-4">
-				<div class="form-group" style="max-width: 100%;">
-					<textarea class="form-control borderradnone" placeholder="Enter Description" style="font-family:Arial, FontAwesome;margin-bottom: 1rem;height: 295px;margin-left: 7%;width: 100%;"></textarea>
-				</div>
-				<!-- <button mat-raised-button class="btn uploadstorebut"><b>View / Upload Test Stores</b></button> -->
-			</div>
-			<div class="col-md-4">
-				<div class="form-group" style="max-width: 100%;">
-					<mat-card class="testcard" style="height:400px">
-						<label class="testappsel">Test Applicability Selection</label>
-						<div class="form-group" style="margin: 0 0 0 0px;max-width: 100%;">
-							<!-- <button mat-raised-button class="btn createbutton" style="width:100%"><b>Test Store Summary</b></button> -->
-							<label style="color: #0000A0">Test Store Summary</label>
-							<input class="form-control borderradnone" type="text" style="font-family:Arial, FontAwesome;margin-bottom: 1rem;"/>
-						</div>
-						<div class="form-group" style="max-width: 100%;">
-							<button mat-raised-button class="btn createbutton" style="width:100%"><b>View Test Summary</b></button>
-						</div>
-					</mat-card>
-				</div>
-				<div style="height: 265px;margin: 30px 0 27px 0;"></div>
-				<button mat-raised-button class="btn createbutton pull-right" style="width: 30%;" (click)="SaveContinue()" ><b>Next</b></button>
-				<button mat-raised-button class="btn createbutton pull-right" style="width: 30%;    margin: 0 5% 0px 0;" (click)="TestParameter()"><b>Save</b></button>
-				
-			</div>	
-	  </div>
+        <div class="form-group" style="margin: 7% 0 10% 0;max-width: 100%;">
+          <label>Test Window</label><span style="color: red;font-size: 18px;"> * </span
+          ><img
+            class="infoicon"
+            matTooltip="Select Start and End Date of Test Window"
+            [matTooltipPosition]="position.value"
+            src="assets/images/information.png"
+            alt="sort"
+          />
+          <div class="pretestborder">
+            <div class="row">
+              <div class="col-md-6">
+                <label>Start</label>
+                <!-- <input class="form-control borderradnone" [(ngModel)]="TestStart" type="text" style="font-family:Arial, FontAwesome;margin-bottom: 1rem;" [matDatepicker]="picker3"/>
+								<mat-datepicker-toggle matSuffix class="calicon col-md-12" [for]="picker3"></mat-datepicker-toggle>
+									<mat-datepicker #picker3 startView="year" [startAt]="startDate"></mat-datepicker> -->
+
+                <input
+                  class="form-control borderradnone"
+                  readonly
+                  name="poststartdt"
+                  [(ngModel)]="model3"
+                  [minDate]="this.postmindate"
+                  [maxDate]="this.postmaxdate"
+                  [disabled]="loaddatas"
+                  ngbDatepicker
+                  #postd1="ngbDatepicker"
+                  [placement]="'top'"
+                  (dateSelect)="PostStartDate($event)"
+                  style="font-family:Arial, FontAwesome;margin-bottom: 1rem;background-color:#fff;width:130px;"
+                />
+                <button
+                  class="btn btn-outline-secondary calendar calicon"
+                  (click)="postd1.toggle()"
+                  style="top:36px;height: 30px;width: 20px;"
+                  type="button"
+                ></button>
+              </div>
+              <div class="col-md-6">
+                <label>End</label>
+                <!-- <input class="form-control borderradnone" [(ngModel)]="TestEnd" type="text" style="font-family:Arial, FontAwesome;margin-bottom: 1rem;" [matDatepicker]="picker4"/>
+								<mat-datepicker-toggle matSuffix class="calicon col-md-12" [for]="picker4" (selectedChanged)="PreStartDate($event)"></mat-datepicker-toggle>
+									<mat-datepicker #picker4> startView="year" [startAt]="startDate"</mat-datepicker> -->
+
+                <input
+                  class="form-control borderradnone"
+                  readonly
+                  name="postenddt"
+                  [(ngModel)]="model4"
+                  [minDate]="this.postmindate"
+                  [maxDate]="this.postmaxdate"
+                  [disabled]="loaddatas"
+                  ngbDatepicker
+                  #postd2="ngbDatepicker"
+                  [placement]="'top'"
+                  (dateSelect)="PostEndDate($event)"
+                  style="font-family:Arial, FontAwesome;margin-bottom: 1rem;background-color:#fff;width:130px;"
+                />
+                <button
+                  class="btn btn-outline-secondary calendar calicon"
+                  (click)="postd2.toggle()"
+                  style="top:36px;height: 30px;width: 20px;"
+                  type="button"
+                ></button>
+              </div>
+            </div>
+            <ng-container *ngIf="postdateshow">
+              <span>Duration : {{ postdays }} Weeks</span>
+            </ng-container>
+          </div>
+        </div>
+
+        <button mat-raised-button class="btn goback" (click)="Previous()" style="float: left;"><b>Back</b></button>
+      </div>
+      <ng-container *ngIf="testparashow">
+        <div class="col-md-4 testform">
+          <label class="createtestlabel" style="width: 73%;margin: 2% 0 0 14%;">Test Parameter Selection</label>
+          <label class="label1">Enter any 2 metrics</label>
+          <div class="form-group" style="max-width: 100%;margin: 6% 0 0 0;">
+            <input
+              type="checkbox"
+              [(ngModel)]="ConfLev"
+              [disabled]="!uncheck"
+              (change)="ConfLevels(ConfLev ? 'A' : 'B')"
+              class="form-control confcheck"
+              name="conf"
+            /><label>Enter Confidence Level</label><span style="color: red;font-size: 18px;"> * </span
+            ><img
+              class="infoicon"
+              matTooltip="Confidence level determines the quality of test, in other words, it tells with how much certainty the test results can be implemented in the market. Recommended level: 85%"
+              [matTooltipPosition]="position.value"
+              src="assets/images/information.png"
+              alt="sort"
+            />
+            <input
+              class="form-control borderradnone"
+              type="text"
+              placeholder="Enter Confidence Level"
+              (keypress)="omit_char($event)"
+              [disabled]="!uncheck"
+              (keydown)="ConfShow()"
+              [(ngModel)]="ConfLevel"
+              style="font-family:Arial, FontAwesome;margin-bottom: 1rem;width: 100%;"
+            />
+            <ng-container *ngIf="confshow">
+              <span style="color: red;">Please Enter Confidence Level</span>
+            </ng-container>
+          </div>
+          <div class="form-group" style="margin: 0;max-width: 100%;">
+            <input
+              type="checkbox"
+              [(ngModel)]="Margin"
+              [disabled]="!uncheck1"
+              (change)="MarginError(Margin ? 'C' : 'D')"
+              class="form-control confcheck"
+              name="margin"
+            /><label>Margin of Error</label><span style="color: red;font-size: 18px;"> * </span
+            ><img
+              class="infoicon"
+              matTooltip="Minimum difference of the Target variable to be observed between test and control group"
+              [matTooltipPosition]="position.value"
+              src="assets/images/information.png"
+              alt="sort"
+            />
+            <!-- <ngx-select
+						[items]="error"
+						[(ngModel)]="itemId"
+						(select)="showcontrolstore($event)"
+						[noAutoComplete]="true"
+						placeholder="--- Select ---"
+						style="width: 100%;"
+						class="borderradnone"
+						>
+						</ngx-select> -->
+            <input
+              class="form-control borderradnone"
+              [disabled]="!uncheck1"
+              type="text"
+              placeholder="Enter No of Error"
+              (keypress)="omit_char($event)"
+              (keydown)="ErrorShow()"
+              [(ngModel)]="NoofError"
+              style="font-family:Arial, FontAwesome;margin-bottom: 1rem;width: 100%;"
+            />
+            <ng-container *ngIf="errorshow">
+              <span style="color: red;">Please Enter No of Error</span>
+            </ng-container>
+          </div>
+          <div class="form-group" style="margin: 7% 0 7% 0;max-width: 100%;">
+            <input
+              type="checkbox"
+              [(ngModel)]="TestStore"
+              [disabled]="!uncheck2"
+              class="form-control confcheck"
+              (change)="TestStores(TestStore ? 'E' : 'F')"
+              name="teststores"
+            /><label>Number of Test Stores</label><span style="color: red;font-size: 18px;"> * </span
+            ><img
+              class="infoicon"
+              matTooltip="Choose the number of stores which gives a high confidence level and a decent measurement of error"
+              [matTooltipPosition]="position.value"
+              src="assets/images/information.png"
+              alt="sort"
+            />
+            <input
+              class="form-control borderradnone"
+              [disabled]="!uncheck2"
+              (keypress)="omit_char($event)"
+              placeholder="Number of Test Stores"
+              (keydown)="TestStoreShow()"
+              [(ngModel)]="NoofTestStore"
+              type="text"
+              style="font-family:Arial, FontAwesome;margin-bottom: 1rem;"
+            />
+            <ng-container *ngIf="teststoreshow">
+              <span style="color: red;">Please Enter No of Test Stores</span>
+            </ng-container>
+          </div>
+          <button mat-raised-button class="btn refresh" style="float: left;" (click)="ResetTestParameter()">
+            <b>Reset</b>
+          </button>
+          <button mat-raised-button class="btn compute" style="float: left;" (click)="Compute()"><b>Compute</b></button
+          ><br /><br />
+          <ng-container *ngIf="metricshow">
+            <span style="margin: 0px 0px 0 -53%;color: red;">Enter any 2 of the 3 parameters for computing</span>
+          </ng-container>
+          <!-- <button mat-raised-button class="btn uploadstorebut"><b>View / Upload Test Stores</b></button> -->
+        </div>
+      </ng-container>
+      <ng-container *ngIf="testfeatshow">
+        <div class="col-md-4 testform" style="margin: 3% 0 0 1%;">
+          <label class="createtestlabel" style="width: 73%;margin: 2% 0 0 10%;">Test Store Feature Selection</label>
+          <div class="form-group" style="max-width: 100%;">
+            <label class="label1">Store Feature - 1</label>
+            <mat-radio-group aria-label="Select an option" class="extcenter" style="margin: 0px 0 0 -5%;">
+              <mat-radio-button value="1" [checked]="true" [disabled]="true" (change)="CurrentTest($event)"
+                >Banner</mat-radio-button
+              >
+            </mat-radio-group>
+            <br />
+            <label class="label1" style="margin:0">Store Feature - 2</label>
+            <mat-radio-group aria-label="Select an option">
+              <mat-radio-button
+                value="1"
+                [checked]="false"
+                class="extcenter"
+                (change)="CurrentTest($event)"
+                style="margin-top: 10px;"
+                >Store Grid</mat-radio-button
+              ><br />
+              <mat-radio-button
+                value="0"
+                [checked]="false"
+                style="margin: 0px 0 0 -3%;"
+                class="extcenter"
+                (change)="CurrentTest($event)"
+                >Segment</mat-radio-button
+              >
+            </mat-radio-group>
+            <!-- <mat-card class="testcard" style="height:400px">
+							<label class="testappsel">Test Applicability Selection</label>
+							<div class="form-group" style="margin: 0 0 0 0px;max-width: 100%;">
+								<label style="color: #0000A0">Test Store Summary</label>
+								<input class="form-control borderradnone" type="text" style="font-family:Arial, FontAwesome;margin-bottom: 1rem;"/>
+							</div>
+							<div class="form-group" style="max-width: 100%;">
+								<button mat-raised-button class="btn createbutton" style="width:100%"><b>View Test Summary</b></button>
+							</div>
+						</mat-card> -->
+          </div>
+          <img
+            class="infoicon"
+            matTooltip="Stores to be Excluded"
+            [matTooltipPosition]="position.value"
+            src="assets/images/information.png"
+            alt="sort"
+            style="position: absolute;margin: 2% 0 0 59%;"
+          /><button mat-raised-button class="btn uploadstorebut" style="width:30%;margin: 11% 0px 0 35%;">
+            <b>Upload</b>
+          </button>
+          <div style="height: 37px;margin: 30px 0 27px 0;"></div>
+          <button
+            mat-raised-button
+            class="btn createbutton pull-right"
+            style="width: 30%;margin-bottom: 10px;"
+            (click)="SaveContinue()"
+          >
+            <b>Next</b>
+          </button>
+
+          <button
+            mat-raised-button
+            class="btn createbutton pull-right"
+            style="width: 30%;    margin: 0 5% 0px 0;"
+            (click)="TestParameter()"
+          >
+            <b>Save</b>
+          </button>
+          <br />
+          <ng-container *ngIf="testperashow">
+            <span class="step2save">Saved Successfully - 0 Minutes</span>
+          </ng-container>
+        </div>
+      </ng-container>
+    </div>
   </ng-container>
   <ng-container *ngIf="savecontshow">
-		<div class="container" [hidden]="showcnt1" style="margin-top: 3%;">
-			<h3 style="margin-top: 6%;"><b>Test Store Selected</b></h3>
-			<button mat-raised-button class="btn createbutton pull-right" style="width: 20%;" ><b>Export Test Stores</b></button>
-			<button mat-raised-button class="btn createbutton pull-right" style="width: 20%;    margin: 0 15px 0 0;"><b>Upload Test Stores</b></button>
-			<br><br>
-			<div style="float:right;">
-				<input
-					class="form-control"
-					type="text"
-					(keyup)="FilterLoadSavedTest($event.target.value)"
-					placeholder="Filter"
-					style="font-family:Arial, FontAwesome;margin-bottom: 1rem;"
-				/>
-				</div>
-			<table
-			style="margin-top: 3%;"
-			mat-table
-			matSort
-			[dataSource]="
-				TestStoreSelectTable
-				| paginate: { itemsPerPage: loadsize, currentPage: lp, totalItems: Load_saved_DATA.length }
-			"
-			(matSortChange)="sortDataLoadSaved($event)"
-			class="mat-elevation-z8"
-			>
-			<ng-container matColumnDef="select">
-				<th mat-header-cell *matHeaderCellDef style="width: 18%;">
-						<span class="table-header-label" style="margin: 5px 0 0 0;">Select Store</span><br>
-					<mat-checkbox (change)="$event ? masterToggleTestStore() : null"
-								[checked]="selection.hasValue() && isAllSelectedTestStore()"
-								[indeterminate]="selection.hasValue() && !isAllSelectedTestStore()"
-								[aria-label]="checkboxLabelTeststore()">
-					</mat-checkbox><span class="table-header-label" style="margin: 0 0 0 5px;">Select All</span>
-				</th>
-				<td mat-cell *matCellDef="let row">
-					<mat-checkbox (click)="$event.stopPropagation()"
-								(change)="$event ? selection.toggle(row) : null"
-								[checked]="selection.isSelected(row)"
-								[aria-label]="checkboxLabelTeststore(row)">
-					</mat-checkbox>
-				</td>
-			</ng-container>
-			<!-- TestName Column -->
-			<ng-container matColumnDef="store_no">
-				<th mat-header-cell *matHeaderCellDef mat-sort-header style="width: 14%;padding: 0;">
-				<span class="table-header-label">Test Store No</span> &nbsp;<img
-					class="logo"
-					src="assets/images/sort-arrow.png"
-					alt="sort"
-				/>
-				</th>
-				<td mat-cell *matCellDef="let row">{{ row.store_no }}</td>
-			</ng-container>
-		
-			<!-- StoreName Column -->
-			<ng-container matColumnDef="store_name">
-				<th mat-header-cell *matHeaderCellDef mat-sort-header style="width: 14%;">
-				<span class="table-header-label">Store name &nbsp;</span
-				><img class="logo" src="assets/images/sort-arrow.png" alt="sort" />
-				</th>
-		
-				<td mat-cell *matCellDef="let row">{{row.store_name}}</td>
-			</ng-container>
-		
-			<!-- Details Column -->
-			<ng-container matColumnDef="banner">
-				<th mat-header-cell *matHeaderCellDef mat-sort-header style="width: 18%;">
-					<span class="table-header-label">Banner</span> &nbsp;<img
-					class="logo"
-					src="assets/images/sort-arrow.png"
-					alt="sort"
-					/>
-				</th>
-				<td mat-cell *matCellDef="let row">{{ row.banner }}</td>
-				</ng-container>
-		
-			<ng-container matColumnDef="segment">
-				<th mat-header-cell *matHeaderCellDef mat-sort-header style="width: 13%;">
-				<span class="table-header-label">Segment</span> &nbsp;<img
-					class="logo"
-					src="assets/images/sort-arrow.png"
-					alt="sort"
-				/>
-				</th>
-				<td mat-cell *matCellDef="let row">{{row.segment}}</td>
-			</ng-container>
-		
-			<ng-container matColumnDef="store_segment">
-				<th mat-header-cell *matHeaderCellDef mat-sort-header style="width: 16%;">
-					<span class="table-header-label">Store Segment</span> &nbsp;<img
-					class="logo"
-					src="assets/images/sort-arrow.png"
-					alt="sort"
-					/>
-				</th>
-				<td mat-cell *matCellDef="let row">{{row.store_segment}}</td>
-				</ng-container>
-		
-			<ng-container matColumnDef="avg_duration">
-				<th mat-header-cell *matHeaderCellDef mat-sort-header style="width: 16%;">
-				<span class="table-header-label">Average Duration</span> &nbsp;<img
-					class="logo"
-					src="assets/images/sort-arrow.png"
-					alt="sort"
-				/>
-				</th>
-				<td mat-cell *matCellDef="let row">
-				{{row.avg_duration}}
-				</td>
-			</ng-container>
+    <div class="container" style="margin-top: 3%;">
+      <h3 style="margin-top: 6%;"><b>Test Store Selected</b></h3>
+      <button mat-raised-button class="btn createbutton pull-right" style="width: 20%;">
+        <b>Export Test Stores</b>
+      </button>
+      <!-- <button mat-raised-button class="btn createbutton pull-right" style="width: 20%;    margin: 0 15px 0 0;"><b>Upload Test Stores</b></button> -->
+      <br /><br />
+      <div style="float:right;">
+        <input
+          class="form-control"
+          type="text"
+          (keyup)="FilterLoadSavedTest($event.target.value)"
+          placeholder="Filter"
+          style="font-family:Arial, FontAwesome;margin-bottom: 1rem;"
+        />
+      </div>
+      <table
+        style="margin-top: 3%;"
+        mat-table
+        matSort
+        [dataSource]="
+          TestStoreSelectTable
+            | paginate: { itemsPerPage: loadsize, currentPage: lp, totalItems: Load_saved_DATA.length }
+        "
+        (matSortChange)="sortDataLoadSaved($event)"
+        class="mat-elevation-z8"
+      >
+        <ng-container matColumnDef="select">
+          <th mat-header-cell *matHeaderCellDef style="width: 18%;">
+            <span class="table-header-label" style="margin: 5px 0 0 0;">Select Store</span><br />
+            <mat-checkbox
+              (change)="$event ? masterToggleTestStore() : null"
+              [checked]="selection.hasValue() && isAllSelectedTestStore()"
+              [indeterminate]="selection.hasValue() && !isAllSelectedTestStore()"
+              [aria-label]="checkboxLabelTeststore()"
+            >
+            </mat-checkbox
+            ><span class="table-header-label" style="margin: 0 0 0 5px;">Select All</span>
+          </th>
+          <td mat-cell *matCellDef="let row">
+            <mat-checkbox
+              (click)="$event.stopPropagation()"
+              (change)="$event ? selection.toggle(row) : null"
+              [checked]="selection.isSelected(row)"
+              [aria-label]="checkboxLabelTeststore(row)"
+            >
+            </mat-checkbox>
+          </td>
+        </ng-container>
+        <!-- TestName Column -->
+        <ng-container matColumnDef="store_no">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header style="width: 14%;padding: 0;">
+            <span class="table-header-label">Test Store No</span> &nbsp;<img
+              class="logo"
+              src="assets/images/sort-arrow.png"
+              alt="sort"
+            />
+          </th>
+          <td mat-cell *matCellDef="let row">{{ row.store_no }}</td>
+        </ng-container>
 
-			<ng-container matColumnDef="act_perform">
-					<th mat-header-cell *matHeaderCellDef mat-sort-header style="width: 16%;">
-					<span class="table-header-label">Activities Performed</span> &nbsp;<img
-						class="logo"
-						src="assets/images/sort-arrow.png"
-						alt="sort"
-					/>
-					</th>
-					<td mat-cell *matCellDef="let row">
-					{{row.act_perform}}
-					</td>
-				</ng-container>
-			<!-- Actions Column -->
-		
-			<ng-container matColumnDef="others">
-				<th mat-header-cell *matHeaderCellDef mat-sort-header>
-				<span class="table-header-label">Other Store Details like GSV,CSV,RSV &nbsp;</span>
-				</th>
-				<td mat-cell *matCellDef="let row">
-				{{row.others}}
-				</td>
-			</ng-container>
-		
-			<tr mat-header-row *matHeaderRowDef="displayedColumnsTestStore"></tr>
-			<tr mat-row *matRowDef="let row; columns: displayedColumnsTestStore" (click)="selection.toggle(row)"></tr>
-			</table>
-			<div class="row">
-				<div class="col-md-10">
-				<pagination-controls
-					(pageChange)="lp = $event; paginateloadsaved(lp)"
-					nextLabel=""
-					previousLabel=""
-				></pagination-controls>
-				</div>
-				<div class="col-md-2">
-				<label style="width:43%;float: left;margin-top: 22px;">Per page</label>
-				<select
-					class="form-control"
-					style="width:43%;margin-top: 1rem;"
-					[(ngModel)]="loadperpage"
-					(change)="perpageLoadSaved($event)"
-				>
-					<option value="10"> 10 </option>
-					<option value="25"> 25 </option>
-					<option value="50"> 50 </option>
-				</select>
-				</div>
-			</div>
-		</div>
-		<button mat-raised-button class="btn createbutton" (click)="Back()" style="width: 10%;margin: 6% 0 0 6%;" ><b>Back</b></button>
-		<button mat-raised-button class="btn createbutton pull-right" style="width: 15%;margin: 6% 6% 5% 0;" (click)="NestPage()"><b>Save and Next</b></button>
-		<button mat-raised-button class="btn createbutton pull-right" style="width: 17%;margin: 6% 1% 5% 0;" (click)="ConfirmValidate()"><b>Confirm and validate</b></button>
-  	</ng-container>
+        <!-- StoreName Column -->
+        <ng-container matColumnDef="store_name">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header style="width: 14%;">
+            <span class="table-header-label">Store name &nbsp;</span
+            ><img class="logo" src="assets/images/sort-arrow.png" alt="sort" />
+          </th>
+
+          <td mat-cell *matCellDef="let row">{{ row.store_name }}</td>
+        </ng-container>
+
+        <!-- Details Column -->
+        <ng-container matColumnDef="banner">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header style="width: 18%;">
+            <span class="table-header-label">Banner</span> &nbsp;<img
+              class="logo"
+              src="assets/images/sort-arrow.png"
+              alt="sort"
+            />
+          </th>
+          <td mat-cell *matCellDef="let row">{{ row.banner }}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="segment">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header style="width: 13%;">
+            <span class="table-header-label">Segment</span> &nbsp;<img
+              class="logo"
+              src="assets/images/sort-arrow.png"
+              alt="sort"
+            />
+          </th>
+          <td mat-cell *matCellDef="let row">{{ row.segment }}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="store_segment">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header style="width: 16%;">
+            <span class="table-header-label">Store Segment</span> &nbsp;<img
+              class="logo"
+              src="assets/images/sort-arrow.png"
+              alt="sort"
+            />
+          </th>
+          <td mat-cell *matCellDef="let row">{{ row.store_segment }}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="avg_duration">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header style="width: 16%;">
+            <span class="table-header-label">Average Duration</span> &nbsp;<img
+              class="logo"
+              src="assets/images/sort-arrow.png"
+              alt="sort"
+            />
+          </th>
+          <td mat-cell *matCellDef="let row">
+            {{ row.avg_duration }}
+          </td>
+        </ng-container>
+
+        <ng-container matColumnDef="act_perform">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header style="width: 16%;">
+            <span class="table-header-label">Activities Performed</span> &nbsp;<img
+              class="logo"
+              src="assets/images/sort-arrow.png"
+              alt="sort"
+            />
+          </th>
+          <td mat-cell *matCellDef="let row">
+            {{ row.act_perform }}
+          </td>
+        </ng-container>
+        <!-- Actions Column -->
+
+        <ng-container matColumnDef="others">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>
+            <span class="table-header-label">Other Store Details like GSV,CSV,RSV &nbsp;</span>
+          </th>
+          <td mat-cell *matCellDef="let row">
+            {{ row.others }}
+          </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumnsTestStore"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumnsTestStore" (click)="selection.toggle(row)"></tr>
+      </table>
+
+      <div class="row">
+        <div class="col-md-10">
+          <pagination-controls
+            (pageChange)="lp = $event; paginateloadsaved(lp)"
+            nextLabel=""
+            previousLabel=""
+          ></pagination-controls>
+        </div>
+        <div class="col-md-2">
+          <label style="width:43%;float: left;margin-top: 22px;">Per page</label>
+          <select
+            class="form-control"
+            style="width:43%;margin-top: 1rem;"
+            [(ngModel)]="loadperpage"
+            (change)="perpageLoadSaved($event)"
+          >
+            <option value="10"> 10 </option>
+            <option value="25"> 25 </option>
+            <option value="50"> 50 </option>
+          </select>
+        </div>
+      </div>
+    </div>
+    <button mat-raised-button class="btn createbutton" (click)="Back()" style="width: 10%;margin: 6% 0 0 6%;">
+      <b>Back</b>
+    </button>
+    <button
+      mat-raised-button
+      class="btn createbutton pull-right"
+      style="width: 15%;margin: 6% 6% 5% 0;"
+      (click)="NestPage()"
+    >
+      <b>Save and Next</b>
+    </button>
+    <button
+      mat-raised-button
+      class="btn createbutton pull-right"
+      style="width: 17%;margin: 6% 1% 5% 0;"
+      (click)="ConfirmValidate()"
+    >
+      <b>Confirm and validate</b></button
+    ><br />
+    <ng-container *ngIf="convalshow">
+      <span class="confval">Test Store Validated</span>
+    </ng-container>
+  </ng-container>
 </div>

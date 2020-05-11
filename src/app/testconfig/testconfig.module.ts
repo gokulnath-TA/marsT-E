@@ -33,6 +33,7 @@ import { MatCardModule } from '@angular/material/card';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { NgbDateStruct, NgbCalendar } from '@ng-bootstrap/ng-bootstrap';
+import { NgbDate, NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   imports: [
@@ -52,6 +53,7 @@ import { NgbDateStruct, NgbCalendar } from '@ng-bootstrap/ng-bootstrap';
     NgMultiSelectDropDownModule,
     MatCheckboxModule,
     FormsModule,
+    NgbModule,
     ReactiveFormsModule,
     MatPaginatorModule,
     MatSortModule,

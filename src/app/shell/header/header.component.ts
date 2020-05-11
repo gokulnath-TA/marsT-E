@@ -34,10 +34,11 @@ export class HeaderComponent implements OnInit {
     }
   }
 
-  Home() {
-    if (this.router.url == '/testconfig') this.homeshow = true;
+  GoHome() {
+    this.router.navigate(['/testconfig']);
+    // this.homeshow = true;
     // window.location.href = ('/testconfig')
-    console.log(this.router.url);
+    // console.log(this.router.url)
   }
 
   toggleMenu() {

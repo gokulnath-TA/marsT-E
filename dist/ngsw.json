@@ -1,0 +1,108 @@
+{
+  "configVersion": 1,
+  "timestamp": 1589183251259,
+  "index": "/index.html",
+  "assetGroups": [
+    {
+      "name": "app",
+      "installMode": "prefetch",
+      "updateMode": "prefetch",
+      "urls": [
+        "/index.html",
+        "/main.0b54be25cc62c0f56e7f.js",
+        "/polyfills.1dfc36563ce1af1c7367.js",
+        "/runtime.ec2944dd8b20ec099bf3.js",
+        "/scripts.859e64cef1ef944f8beb.js",
+        "/styles.b52baf0c58754557cf13.css"
+      ],
+      "patterns": []
+    },
+    {
+      "name": "assets",
+      "installMode": "lazy",
+      "updateMode": "prefetch",
+      "urls": [
+        "/assets/favicon.png",
+        "/assets/images/1.png",
+        "/assets/images/88.jpg",
+        "/assets/images/MCDLogo.png",
+        "/assets/images/bullet-arrow.png",
+        "/assets/images/calendar.png",
+        "/assets/images/delete.png",
+        "/assets/images/delete1.png",
+        "/assets/images/edit.png",
+        "/assets/images/edit1.png",
+        "/assets/images/flag.png",
+        "/assets/images/home-run.png",
+        "/assets/images/information.png",
+        "/assets/images/left-arrow.png",
+        "/assets/images/login-image.png",
+        "/assets/images/logo.png",
+        "/assets/images/mcd-logo.png",
+        "/assets/images/mcdonalds-logo.jpg",
+        "/assets/images/next.png",
+        "/assets/images/next.zip",
+        "/assets/images/password.png",
+        "/assets/images/refresh.png",
+        "/assets/images/sort-arrow.png",
+        "/assets/images/user-name.png",
+        "/assets/images/view.png",
+        "/assets/ngx-rocket-logo.png"
+      ],
+      "patterns": []
+    }
+  ],
+  "dataGroups": [],
+  "hashTable": {
+    "/assets/favicon.png": "80d882556e6c42fcc73e641fbe72f2e2e0b361cc",
+    "/assets/images/1.png": "77fe65a4bf87792639071dcea1aa8a2bd64e30b3",
+    "/assets/images/88.jpg": "de1e89381881e7d2b7495c703ecdb814fe04dd0b",
+    "/assets/images/MCDLogo.png": "c61e4ccfb76047c77eb3cd39f8e4ec7ce13f069c",
+    "/assets/images/bullet-arrow.png": "698682ad7f318c089024f7b24555cbdec3083e08",
+    "/assets/images/calendar.png": "794648af208f1c2875ac9fe542eed05a8fc1bd11",
+    "/assets/images/delete.png": "1460c019dc19e6288b828ef90977b6b57e1e02e4",
+    "/assets/images/delete1.png": "e2652d09b69046b3d05c28c413058d455768a1f5",
+    "/assets/images/edit.png": "7c5fe3fbcef3cd1bce3379b8ae9bbddf6101bcaf",
+    "/assets/images/edit1.png": "cabda517b6308d257ec75f6b3607ff351c9f7f13",
+    "/assets/images/flag.png": "f0c60efb5a1e39759d79f6a403db6178a9ea305e",
+    "/assets/images/home-run.png": "477a46299ea55b66cea4fbd30ca8bf41a2c6e282",
+    "/assets/images/information.png": "67aa7b2a660d7a128f7a98a89f8a7576a30d6c90",
+    "/assets/images/left-arrow.png": "a60f0d2034744424a17d2320acfe9ca98f968bdd",
+    "/assets/images/login-image.png": "74c176c519fbfffd08649f1b3e0a38bc8fa8de73",
+    "/assets/images/logo.png": "c61e4ccfb76047c77eb3cd39f8e4ec7ce13f069c",
+    "/assets/images/mcd-logo.png": "629aec2ae34080d5302e5c3481a941a40755b7ff",
+    "/assets/images/mcdonalds-logo.jpg": "9c5f40c7f57bb7e9345dc75f52a0aadc2310d047",
+    "/assets/images/next.png": "9d7427cb01fdde95b9b6993c05b4db1cb57b8fa2",
+    "/assets/images/next.zip": "2926a8352d02025c3ce97d3873af85142ba4b10a",
+    "/assets/images/password.png": "d5acf457d9568d5981b99675dce3b797ce349b63",
+    "/assets/images/refresh.png": "0a39e0d5dc47424aff95beed93a8c36d85908a8a",
+    "/assets/images/sort-arrow.png": "4afaaa08ef27239a693e7e36b25e2dfa2ed0bb3b",
+    "/assets/images/user-name.png": "a2db88030c76cf1d78fcfef0ecdb8a242e6de08a",
+    "/assets/images/view.png": "e08d6a7e3f691d9986fcabc119aed9deb8457e3c",
+    "/assets/ngx-rocket-logo.png": "0ac53fd27406fe5a36e68285315fb0012e54058e",
+    "/index.html": "cf48e52ffd92dcf66dcda34155e0490e5938e218",
+    "/main.0b54be25cc62c0f56e7f.js": "7b4f2b8d1c0e0c963777ac38ff34490fdb5cf253",
+    "/polyfills.1dfc36563ce1af1c7367.js": "a22738dbe2929c665266d864d8cd29bafcf4eabf",
+    "/runtime.ec2944dd8b20ec099bf3.js": "b62956c2192bfe5516d6374e753773901ed50ec5",
+    "/scripts.859e64cef1ef944f8beb.js": "6ef86cf122a81582056ba86ee20dccb16d14ec5f",
+    "/styles.b52baf0c58754557cf13.css": "34b48fe3fcddac70d043147b935f06271a8f7319"
+  },
+  "navigationUrls": [
+    {
+      "positive": true,
+      "regex": "^\\/.*$"
+    },
+    {
+      "positive": false,
+      "regex": "^\\/(?:.+\\/)?[^/]*\\.[^/]*$"
+    },
+    {
+      "positive": false,
+      "regex": "^\\/(?:.+\\/)?[^/]*__[^/]*$"
+    },
+    {
+      "positive": false,
+      "regex": "^\\/(?:.+\\/)?[^/]*__[^/]*\\/.*$"
+    }
+  ]
+}

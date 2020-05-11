@@ -23,6 +23,14 @@ label {
   text-align: center;
 }
 
+.btntrue {
+  background-color: #e6a12f !important;
+}
+
+.btnfalse {
+  background-color: #0000a0;
+}
+
 div.contentdiv {
   width: calc(100vw + 30px);
   height: calc(100vh - 160px);
@@ -64,7 +72,8 @@ div.contentdiv {
 .stg1text {
   font-size: 1.25rem;
   position: relative;
-  top: 10px;
+  top: 3%;
+  font-weight: bold;
   color: #000000;
 }
 /*First stepper stage1*/
@@ -102,7 +111,8 @@ div.contentdiv {
 .stg2text {
   font-size: 1.25rem;
   position: relative;
-  top: 10px;
+  top: 3%;
+  font-weight: bold;
   color: #000000;
 }
 /*Second stepper stage2*/
@@ -124,27 +134,32 @@ div.contentdiv {
   height: 0;
   top: 0;
   left: -37px;
-  border: 50px solid #120b4e;
+  border: 50px solid #e30073;
   border-left: 30px solid transparent;
+}
+
+.borderrad {
+  border-radius: 0;
 }
 
 .stg3text {
   font-size: 1.25rem;
   position: relative;
-  top: 10px;
+  top: 3%;
+  font-weight: bold;
 }
 /*Third stepper stage3*/
 
 /*wizard active class*/
 .stepper-active {
-  background: #120b4e !important;
+  background: #e30073 !important;
 }
 /*wizard active class*/
 
 /*Arch wizard stage color*/
 
 ::ng-deep #w3wizard3 aw-wizard-navigation-bar.horizontal.large-filled ul.steps-indicator li.current .step-indicator {
-  background-color: #0073dd;
+  background-color: #e6a12f;
 }
 /*Arch wizard stage color*/
 
@@ -292,6 +307,7 @@ button.calendar {
 .aligndate {
   top: 8px;
   background-color: #fff;
+  border-radius: 0;
 }
 /*Date picker*/
 
@@ -299,12 +315,23 @@ button.calendar {
 .butn {
   border: none;
   color: white;
-  background-color: #0386ff;
+  background-color: #0000a0;
   font-size: 16px;
   text-align: center;
   text-decoration: none;
   display: inline-block;
   cursor: pointer;
+}
+
+.step1 {
+  color: #fff;
+  margin: 27px 0px 0px -30px;
+  font-weight: bold;
+  position: absolute;
+}
+
+.dropdown-btn {
+  border-radius: 0;
 }
 
 .analyzefeature-save {
@@ -409,7 +436,7 @@ table.mat-table {
 }
 
 tr.mat-header-row {
-  background-color: #041e42 !important;
+  background-color: #0000a0 !important;
 }
 th.mat-header-cell {
   color: #fff !important;

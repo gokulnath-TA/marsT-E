@@ -2,11 +2,10 @@
 //import env from './.env';
 
 export const environment = {
-  production: true,
+  production: false,
   version: 1,
-  //192.168.56.1,192.168.24.92
-  serverUrl: 'http://localhost:8000/api/',
-  LiveUrl: 'http://52.152.198.229:8000/api/',
+  serverUrl: 'http://18.215.170.41:7000/api/',
+  LiveUrl: 'http://10.1.151.122:8000/api/',
   ReportPath: 'http://10.1.151.122/report/',
   defaultLanguage: 'en-US',
   supportedLanguages: ['en-US', 'fr-FR']
